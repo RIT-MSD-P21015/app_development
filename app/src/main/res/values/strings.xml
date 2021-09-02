@@ -11,4 +11,9 @@
     <string name="login_failed">"Login failed"</string>
     <string name="fall_risk_assessment">Fall Risk Assessment</string>
     <string name="forgot_password">Forgot Password?</string>
+    <string name="patient_information">Patient Information</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="settings">Settings</string>
+    <string name="results">Results</string>
+    <string name="physical_test">Physical Test</string>
 </resources>
