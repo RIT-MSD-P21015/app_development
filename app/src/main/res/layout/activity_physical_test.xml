@@ -6,38 +6,38 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="211dp"
-        android:layout_height="31dp"
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="120dp"
-        android:text="@string/patient_information"
+        android:text="@string/physical_test"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
-        android:layout_width="170dp"
+        android:id="@+id/button_return_dashboard"
+        android:layout_width="175dp"
         android:layout_height="60dp"
-        android:layout_marginTop="240dp"
-        android:layout_marginBottom="443dp"
-        android:text="@string/take_patient_survey"
+        android:layout_marginBottom="254dp"
+        android:text="@string/return_to_main_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_start_test"
+        app:layout_constraintVertical_bias="0.441" />
+
+    <Button
+        android:id="@+id/button_start_test"
+        android:layout_width="175dp"
+        android:layout_height="60dp"
+        android:text="@string/start_test"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.366" />
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="330dp"
-        android:layout_marginBottom="353dp"
-        android:text="@string/see_patient_data"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

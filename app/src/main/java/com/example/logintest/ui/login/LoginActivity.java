@@ -144,5 +144,6 @@ public class LoginActivity extends AppCompatActivity {
     public void openActivityDashboard() {
         Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
+        this.finish();
     }
 }

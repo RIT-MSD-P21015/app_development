@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/button_return_dashboard"
         android:layout_width="175dp"
         android:layout_height="60dp"
         android:layout_marginBottom="254dp"
@@ -26,11 +26,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7"
+        app:layout_constraintTop_toBottomOf="@+id/button_start_test"
         app:layout_constraintVertical_bias="0.441" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/button_start_test"
         android:layout_width="175dp"
         android:layout_height="60dp"
         android:text="@string/start_test"

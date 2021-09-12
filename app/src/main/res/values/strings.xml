@@ -21,4 +21,9 @@
     <string name="start_test">Start Test</string>
     <string name="return_to_main_menu">Return to main menu</string>
     <string name="see_results">See Results</string>
+    <string name="logout">Logout</string>
+    <string name="_1_make_sure_you_are_in_a_clear_space">1. Make sure you are in a clear space</string>
+    <string name="_2_place_phone_on_chest">2. Place phone on chest</string>
+    <string name="_3_read_the_instructions_for_each_task">3. Read the instructions for each task</string>
+    <string name="_4_press_start_tests_when_you_are_ready_to_start">4. Press Start Tests when you are ready to start</string>
 </resources>
