@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -22,6 +23,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.logintest.Dashboard;
+import com.example.logintest.PatientInfo;
 import com.example.logintest.R;
 import com.example.logintest.ui.login.LoginViewModel;
 import com.example.logintest.ui.login.LoginViewModelFactory;
@@ -39,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText usernameEditText = findViewById(R.id.username);
         final EditText passwordEditText = findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.login);
+        final Button loginButton = findViewById(R.id.button_login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
@@ -74,7 +77,8 @@ public class LoginActivity extends AppCompatActivity {
                 setResult(Activity.RESULT_OK);
 
                 //Complete and destroy login activity once successful
-                finish();
+                //finish will minimize and "end"
+                //finish();
             }
         });
 
@@ -115,6 +119,7 @@ public class LoginActivity extends AppCompatActivity {
                 loadingProgressBar.setVisibility(View.VISIBLE);
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
+                openActivityDashboard();
             }
         });
     }
@@ -133,5 +138,11 @@ public class LoginActivity extends AppCompatActivity {
     public void resetPassword(View view) {
         String passReset = "Pressed reset password button";
         Toast.makeText(getApplicationContext(), passReset, Toast.LENGTH_LONG).show();
+    }
+
+    // this function opens the Dashboard activity
+    public void openActivityDashboard() {
+        Intent intent = new Intent(this, Dashboard.class);
+        startActivity(intent);
     }
 }
