@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginTest">
-        <activity android:name=".PatientTest"></activity>
+        <activity android:name=".PatientData"></activity>
+        <activity android:name=".PatientSurvey" />
+        <activity android:name=".PatientTest" />
         <activity android:name=".PhysicalTest" />
         <activity android:name=".Settings" />
         <activity android:name=".Results" />
