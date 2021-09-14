@@ -1,8 +1,10 @@
-package com.example.logintest;
+package com.example.logintest.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.logintest.R;
 
 public class PatientData extends AppCompatActivity {
 

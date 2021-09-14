@@ -1,4 +1,4 @@
-package com.example.logintest;
+package com.example.logintest.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
+
+import com.example.logintest.R;
 
 public class Results extends AppCompatActivity {
 

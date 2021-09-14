@@ -1,4 +1,4 @@
-package com.example.logintest;
+package com.example.logintest.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,6 +6,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.logintest.R;
 
 public class PatientSurvey extends AppCompatActivity {
 

@@ -9,14 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginTest">
-        <activity android:name=".PatientData"></activity>
-        <activity android:name=".PatientSurvey" />
-        <activity android:name=".PatientTest" />
-        <activity android:name=".PhysicalTest" />
-        <activity android:name=".Settings" />
-        <activity android:name=".Results" />
-        <activity android:name=".PatientInfo" />
-        <activity android:name=".Dashboard" />
+        <activity android:name=".ui.login.PatientData"></activity>
+        <activity android:name=".ui.login.PatientSurvey" />
+        <activity android:name=".ui.login.PatientTest" />
+        <activity android:name=".ui.login.PhysicalTest" />
+        <activity android:name=".ui.login.Settings" />
+        <activity android:name=".ui.login.Results" />
+        <activity android:name=".ui.login.PatientInfo" />
+        <activity android:name=".ui.login.Dashboard" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/app_name">

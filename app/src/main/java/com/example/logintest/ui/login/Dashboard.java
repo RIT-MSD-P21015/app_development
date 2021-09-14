@@ -1,4 +1,4 @@
-package com.example.logintest;
+package com.example.logintest.ui.login;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.logintest.ui.login.LoginActivity;
+import com.example.logintest.R;
 
 public class Dashboard extends AppCompatActivity {
     private Button patientButton, physicalTestButton, resultButton, settingsButton, logoutButton;

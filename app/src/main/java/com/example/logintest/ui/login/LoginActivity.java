@@ -23,11 +23,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.logintest.Dashboard;
-import com.example.logintest.PatientInfo;
 import com.example.logintest.R;
-import com.example.logintest.ui.login.LoginViewModel;
-import com.example.logintest.ui.login.LoginViewModelFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
