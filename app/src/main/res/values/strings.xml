@@ -54,4 +54,7 @@
     <string name="do_you_have_loose_urine_or_pass_stool_involuntarily">Do you have loose urine or pass stool involuntarily?</string>
     <string name="do_you_take_medication_for_sleep_cardiac_problems_diuretics_or_sedative">Do you take medication for sleep, cardiac problems, diuretics, or sedative?</string>
     <string name="do_you_have_problems_with_hearing_or_vision">Do you have problems with hearing or vision?</string>
+    <string name="clear_data">Clear Data</string>
+    <string name="style">Style</string>
+    <string name="about">About</string>
 </resources>

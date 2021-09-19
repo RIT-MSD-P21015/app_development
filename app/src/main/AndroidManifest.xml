@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginTest">
-        <activity android:name=".ui.login.PatientData"></activity>
+        <activity
+            android:name=".ui.login.SettingsStyle"
+            android:exported="true" />
+        <activity
+            android:name=".ui.login.SettingsAbout"
+            android:exported="true" />
+        <activity android:name=".ui.login.PatientData" />
         <activity android:name=".ui.login.PatientSurvey" />
         <activity android:name=".ui.login.PatientTest" />
         <activity android:name=".ui.login.PhysicalTest" />
