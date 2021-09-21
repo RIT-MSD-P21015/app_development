@@ -16,7 +16,7 @@ public class PatientSurvey extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_survey);
 
-        Button submitSurveyButton = (Button) findViewById(R.id.button_submit_survey);
+        Button submitSurveyButton = findViewById(R.id.button_submit_survey);
 
         submitSurveyButton.setOnClickListener(v -> openDashboardActivity());
     }

@@ -16,10 +16,10 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        Button aboutButton = (Button) findViewById(R.id.button_about);
-        Button styleButton = (Button) findViewById(R.id.button_style);
-        Button clearDataButton = (Button) findViewById(R.id.button_clear_data);
-        Button returnMainButton = (Button) findViewById(R.id.button_return_main);
+        Button aboutButton = findViewById(R.id.button_about);
+        Button styleButton = findViewById(R.id.button_style);
+        Button clearDataButton = findViewById(R.id.button_clear_data);
+        Button returnMainButton = findViewById(R.id.button_return_main);
 
         aboutButton.setOnClickListener(v -> openAboutActivity());
         styleButton.setOnClickListener(v -> openStyleActivity());
