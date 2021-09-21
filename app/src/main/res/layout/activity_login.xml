@@ -68,6 +68,7 @@
         android:imeActionLabel="@string/action_sign_in_short"
         android:imeOptions="actionDone"
         android:inputType="textPassword"
+        android:minHeight="48dp"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -80,20 +81,20 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="184dp"
         android:layout_marginEnd="24dp"
-        android:autofillHints=""
         android:hint="@string/prompt_email"
         android:inputType="textEmailAddress"
+        android:minHeight="48dp"
         android:selectAllOnFocus="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/button_forgot_password"
         android:layout_width="200dp"
         android:layout_height="60dp"
         android:layout_marginBottom="240dp"
-        android:onClick="resetPassword"
         android:text="@string/forgot_password"
 
         app:backgroundTint="#9A1BDF"
