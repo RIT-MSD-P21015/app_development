@@ -28,6 +28,8 @@ public class PatientSurvey extends AppCompatActivity {
         this.finish();
     }
 
+    //TODO: add scrollable to survey, also make buttons and text bigger
+
     // Override back button for confirm leave
     @Override
     public void onBackPressed() {

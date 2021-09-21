@@ -256,12 +256,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6" />
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="205dp" />
 
     <EditText
         android:id="@+id/editTextNumber"
@@ -270,7 +264,6 @@
         android:layout_marginStart="31dp"
         android:layout_marginLeft="31dp"
         android:layout_marginTop="8dp"
-        android:autofillHints=""
         android:ems="10"
         android:hint="@string/age"
         android:inputType="number"
@@ -307,7 +300,6 @@
         android:layout_marginStart="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="5dp"
-        android:autofillHints=""
         android:ems="10"
         android:hint="@string/feet"
         android:inputType="number"
@@ -322,7 +314,6 @@
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="5dp"
-        android:autofillHints=""
         android:ems="10"
         android:hint="@string/inches"
         android:inputType="number"
@@ -378,7 +369,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="5dp"
-        android:autofillHints=""
         android:ems="10"
         android:hint="@string/weight"
         android:inputType="number"
@@ -456,7 +446,6 @@
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="@string/number_of_falls"
-        android:importantForAutofill="no"
         android:inputType="number"
         android:textSize="12sp"
         app:layout_constraintStart_toEndOf="@+id/textView16"
@@ -488,5 +477,18 @@
             android:layout_weight="1"
             android:text="@string/false_button" />
     </RadioGroup>
+
+    <ScrollView
+        android:layout_width="414dp"
+        android:layout_height="361dp"
+        android:scrollbarStyle="insideInset"
+        tools:layout_editor_absoluteX="-1dp"
+        tools:layout_editor_absoluteY="407dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" />
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
