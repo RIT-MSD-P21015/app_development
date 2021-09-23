@@ -19,12 +19,12 @@ public class Settings extends AppCompatActivity {
         Button aboutButton = findViewById(R.id.button_about);
         Button styleButton = findViewById(R.id.button_style);
         Button clearDataButton = findViewById(R.id.button_clear_data);
-        Button returnMainButton = findViewById(R.id.button_return_main);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_settings);
 
         aboutButton.setOnClickListener(v -> openAboutActivity());
         styleButton.setOnClickListener(v -> openStyleActivity());
         clearDataButton.setOnClickListener(v -> confirmClear());
-        returnMainButton.setOnClickListener(v -> openDashboardActivity());
+        returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
     }
 
     private void openAboutActivity() {
@@ -40,17 +40,17 @@ public class Settings extends AppCompatActivity {
     private void confirmClear() {
 
         // TODO: Clear patient data...reset app to default
+        // TODO: Fix the pop-up button
         new AlertDialog.Builder(this)
-//                .setIcon(android.R.drawable.ic_dialog_alert)
                 .setTitle("Clear Patient Info")
                 .setMessage("Are you sure you want to clear all patient info?")
                 .setPositiveButton("Yes", (dialog, which) -> finish())
                 .setNegativeButton("No", null)
                 .show();
 
-        Intent intent = new Intent(this, Dashboard.class);
-        startActivity(intent);
-        finish();
+//        Intent intent = new Intent(this, Dashboard.class);
+//        startActivity(intent);
+//        finish();
     }
 
 

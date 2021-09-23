@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button_return_dashboard"
+        android:id="@+id/button_return_main_physical_test_page"
         android:layout_width="175dp"
         android:layout_height="60dp"
         android:layout_marginBottom="254dp"

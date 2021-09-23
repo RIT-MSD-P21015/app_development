@@ -16,7 +16,7 @@ public class PhysicalTest extends AppCompatActivity {
         setContentView(R.layout.activity_physical_test);
 
         Button startTestButton = (Button) findViewById(R.id.button_start_test);
-        Button returnDashboardButton = (Button) findViewById(R.id.button_return_dashboard);
+        Button returnDashboardButton = (Button) findViewById(R.id.button_return_main_physical_test_page);
 
         startTestButton.setOnClickListener(v -> openTestActivity());
 

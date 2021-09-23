@@ -1,71 +1,42 @@
 package com.example.logintest.ui.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintest.R;
 
 public class Dashboard extends AppCompatActivity {
-    private Button patientButton, physicalTestButton, resultButton, settingsButton, logoutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        patientButton = (Button) findViewById(R.id.button_patient_info);
-        physicalTestButton = (Button) findViewById(R.id.button_physical_test);
-        resultButton = (Button) findViewById(R.id.button_results);
-        settingsButton = (Button) findViewById(R.id.button_settings);
-        logoutButton = (Button) findViewById(R.id.button_logout);
+        Button patientButton = (Button) findViewById(R.id.button_patient_info);
+        Button physicalTestButton = (Button) findViewById(R.id.button_physical_test);
+        Button resultButton = (Button) findViewById(R.id.button_results);
+        Button settingsButton = (Button) findViewById(R.id.button_settings);
+        Button logoutButton = (Button) findViewById(R.id.button_logout);
 
 
-        patientButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityPatientInfo();
-            }
-        });
+        patientButton.setOnClickListener(v -> openActivityPatientInfo());
 
-        physicalTestButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityPhysicalTest();
-            }
-        });
+        physicalTestButton.setOnClickListener(v -> openActivityPhysicalTest());
 
-        resultButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivityResults();
-            }
-        });
+        resultButton.setOnClickListener(v -> openActivityResults());
 
-        settingsButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openActivitySettings();
-            }
-        });
+        settingsButton.setOnClickListener(v -> openActivitySettings());
 
-        logoutButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logout();
-            }
-        });
+        logoutButton.setOnClickListener(v -> logout());
 
     }
 
     @Override
     public void onBackPressed() {
         // do nothing
-//        Intent intent = new Intent(this, Dashboard.class);
-//        startActivity(intent);
     }
 
     public void openActivityPatientInfo() {

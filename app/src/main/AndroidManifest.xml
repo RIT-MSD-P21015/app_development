@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoginTest">
         <activity
+            android:name=".ui.login.SecondTest"
+            android:exported="true" />
+        <activity
+            android:name=".ui.login.FirstTest"
+            android:exported="true" />
+        <activity
             android:name=".ui.login.SettingsStyle"
             android:exported="true" />
         <activity
