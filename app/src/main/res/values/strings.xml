@@ -63,4 +63,6 @@
     <string name="todo">TODO</string>
     <string name="first_test">First Test</string>
     <string name="end_test">End Test</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>
