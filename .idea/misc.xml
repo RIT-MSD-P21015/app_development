@@ -16,13 +16,16 @@
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_settings.xml" value="0.28783783783783784" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_settings_about.xml" value="0.33" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_settings_style.xml" value="0.14134041141340412" />
+        <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_test3.xml" value="0.17650962176509621" />
+        <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_test4.xml" value="0.17650962176509621" />
+        <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_test5.xml" value="0.17650962176509621" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/patient_information.xml" value="0.2695035460992908" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/physical_test_screen.xml" value="0.2695035460992908" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/results.xml" value="0.18478260869565216" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="16" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" default="true" project-jdk-name="16" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

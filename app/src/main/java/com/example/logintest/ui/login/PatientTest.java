@@ -24,7 +24,7 @@ public class PatientTest extends AppCompatActivity {
 
 
     private void openTestActivity() {
-        Intent intent = new Intent(this, FirstTest.class);
+        Intent intent = new Intent(this, Test1.class);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();
