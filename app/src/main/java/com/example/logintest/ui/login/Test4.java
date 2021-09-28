@@ -38,7 +38,7 @@ public class Test4 extends AppCompatActivity {
         String FourthTestEnd = "Fourth Test ENDED";
         Toast.makeText(getApplicationContext(), FourthTestEnd, Toast.LENGTH_LONG).show();
 
-        Intent intent = new Intent(this, Test4.class);
+        Intent intent = new Intent(this, Test5.class);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();
