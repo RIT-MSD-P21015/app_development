@@ -1,16 +1,25 @@
 package com.example.logintest.ui.login;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.logintest.R;
+import com.example.logintest.data.sensors.DataCollector;
+import com.example.logintest.data.sensors.TestDataManager;
 
 public class Test1 extends AppCompatActivity {
 
+    private TestDataManager tdm;
+    private DataCollector dataCollector;
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,17 +32,21 @@ public class Test1 extends AppCompatActivity {
         startTest.setOnClickListener(v -> collectFirstTest());
         endTest.setOnClickListener(v -> endCollectFirstTest());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+
+        tdm = new TestDataManager();
+        dataCollector = new DataCollector(this, tdm);
     }
 
     private void collectFirstTest() {
-        // TODO: start data collection for first test...start logging data
+        // start data collection for first test...start logging data
+        dataCollector.start();
 
         String FirstTestStart = getString(R.string.first_test_start);
         Toast.makeText(getApplicationContext(), FirstTestStart, Toast.LENGTH_LONG).show();
     }
 
     private void endCollectFirstTest() {
-        // TODO: end data collection for first test...send to server
+
         // once data collection finishing, change activity to second test
 //        int sentToServer = 0;
 //        while(sentToServer != 1) {
@@ -44,6 +57,11 @@ public class Test1 extends AppCompatActivity {
 //                this.finish();
 //            }
 //        }
+
+        // end data collection for first test
+        dataCollector.stop();
+
+        // TODO send data to server
 
         String FirstTestEnd = "First Test ENDED";
         Toast.makeText(getApplicationContext(), FirstTestEnd, Toast.LENGTH_LONG).show();

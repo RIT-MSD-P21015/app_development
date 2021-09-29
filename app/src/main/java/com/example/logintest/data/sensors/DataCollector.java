@@ -6,8 +6,11 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Build;
+import android.util.Log;
 
 import androidx.annotation.RequiresApi;
+
+import java.util.Arrays;
 
 public class DataCollector implements SensorEventListener {
 
@@ -42,6 +45,8 @@ public class DataCollector implements SensorEventListener {
         step_counter = sensorManager.getDefaultSensor(Sensor.TYPE_STEP_COUNTER);
 
         this.tdm = tdm;
+
+        Log.v("SENSORS", "Data collector initialized");
     }
 
     /**
@@ -55,6 +60,8 @@ public class DataCollector implements SensorEventListener {
         sensorManager.registerListener(this, lin_accel_sense, SensorManager.SENSOR_DELAY_GAME);
         sensorManager.registerListener(this, rot_sense, SensorManager.SENSOR_DELAY_GAME);
         sensorManager.registerListener(this, step_counter, SensorManager.SENSOR_DELAY_GAME);
+
+        Log.v("SENSORS", "Sensors registered to listener");
     }
 
     /**
@@ -62,36 +69,58 @@ public class DataCollector implements SensorEventListener {
      */
     public void stop() {
         sensorManager.unregisterListener(this);
+
+        Log.v("SENSORS", "Sensors unregistered");
     }
 
+    @Override
     public void onSensorChanged(SensorEvent event) {
         TestData data = new TestData(event.accuracy, event.timestamp, event.values);
+
+        // DEBUG
+        String sensor_type = "NONE";
 
         switch (event.sensor.getType()) {
             case Sensor.TYPE_ACCELEROMETER:
                 tdm.addAccelData(data);
+                sensor_type = "ACCELEROMETER";  // DEBUG
                 break;
             case Sensor.TYPE_GYROSCOPE:
                 tdm.addGyroData(data);
+                sensor_type = "GYROSCOPE";  // DEBUG
                 break;
             case Sensor.TYPE_GRAVITY:
                 tdm.addGravData(data);
+                sensor_type = "GRAVITY";    // DEBUG
                 break;
             case Sensor.TYPE_LINEAR_ACCELERATION:
                 tdm.addLinAccelData(data);
+                sensor_type = "LIN ACCELERATION";   // DEBUG
                 break;
             case Sensor.TYPE_ROTATION_VECTOR:
                 tdm.addRotData(data);
+                sensor_type = "ROTATION";   // DEBUG
                 break;
             case Sensor.TYPE_STEP_COUNTER:
                 tdm.addStepData(data);
+                sensor_type = "STEPS";  // DEBUG
                 break;
             default:
                 // do nothing for weird cases
                 break;
         }
+
+        // DEBUG log to console to show sensors are collecting data
+        if (Log.isLoggable("SENSORS", Log.VERBOSE)) {
+            String msg = sensor_type + " logged: "
+                    + " accuracy: " + data.getAccuracy()
+                    + ", timestamp: " + data.getTimestamp()
+                    + ", values: " + Arrays.toString(data.getValues());
+            Log.v("SENSORS", msg);
+        }
     }
 
+    @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
         // unused
     }
