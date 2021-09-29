@@ -16,6 +16,7 @@ import com.example.logintest.data.sensors.TestDataManager;
 
 public class Test1 extends AppCompatActivity {
 
+    // TODO serialize the data manager
     private TestDataManager tdm;
     private DataCollector dataCollector;
 

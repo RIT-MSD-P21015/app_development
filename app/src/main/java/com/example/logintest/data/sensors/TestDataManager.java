@@ -4,6 +4,7 @@ import android.hardware.Sensor;
 
 import java.util.ArrayList;
 
+// TODO implements serializable?
 public class TestDataManager {
 
     private final ArrayList<TestData> accelData;

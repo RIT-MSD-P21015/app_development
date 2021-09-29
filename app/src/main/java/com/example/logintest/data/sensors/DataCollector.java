@@ -107,17 +107,16 @@ public class DataCollector implements SensorEventListener {
                 break;
             default:
                 // do nothing for weird cases
+                Log.v("SENSORS", "default case hit");
                 break;
         }
 
         // DEBUG log to console to show sensors are collecting data
-        if (Log.isLoggable("SENSORS", Log.VERBOSE)) {
-            String msg = sensor_type + " logged: "
-                    + " accuracy: " + data.getAccuracy()
-                    + ", timestamp: " + data.getTimestamp()
-                    + ", values: " + Arrays.toString(data.getValues());
-            Log.v("SENSORS", msg);
-        }
+        String msg = sensor_type + " logged: "
+                + " accuracy: " + data.getAccuracy()
+                + ", timestamp: " + data.getTimestamp()
+                + ", values: " + Arrays.toString(data.getValues());
+        Log.v("SENSORS", msg);
     }
 
     @Override

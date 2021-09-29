@@ -1,16 +1,25 @@
 package com.example.logintest.ui.login;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.logintest.R;
+import com.example.logintest.data.sensors.DataCollector;
+import com.example.logintest.data.sensors.TestDataManager;
 
 public class Test5 extends AppCompatActivity {
 
+    // TODO serialize the data manager
+    private TestDataManager tdm;
+    private DataCollector dataCollector;
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,17 +32,24 @@ public class Test5 extends AppCompatActivity {
         startTest.setOnClickListener(v -> collectFifthTest());
         endTest.setOnClickListener(v -> endCollectFifthTest());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+
+        tdm = new TestDataManager();
+        dataCollector = new DataCollector(this, tdm);
     }
 
     private void collectFifthTest() {
-        // TODO: start data collection for second test...start logging data
+        // start data collection for first test...start logging data
+        dataCollector.start();
 
         String FifthTestStart = "Fifth Test Data Collection Started";
         Toast.makeText(getApplicationContext(), FifthTestStart, Toast.LENGTH_LONG).show();
     }
 
     private void endCollectFifthTest() {
-        // TODO: end data collection for second test...send to server
+        // end data collection for first test
+        dataCollector.stop();
+
+        // TODO send data to server
 
         String FifthTestEnd = "Fifth Test ENDED";
         Toast.makeText(getApplicationContext(), FifthTestEnd, Toast.LENGTH_LONG).show();
