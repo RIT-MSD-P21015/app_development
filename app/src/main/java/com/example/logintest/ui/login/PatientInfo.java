@@ -18,8 +18,10 @@ public class PatientInfo extends AppCompatActivity {
         Button startSurveyButton = (Button) findViewById(R.id.button_take_survey);
         Button seePatientDataButton = (Button) findViewById(R.id.button_see_data);
 
-        startSurveyButton.setOnClickListener(v -> openPatientSurveyActivity());
+        Button returnDashboardButton = findViewById(R.id.button_return_main_patient_info);
 
+        returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+        startSurveyButton.setOnClickListener(v -> openPatientSurveyActivity());
         seePatientDataButton.setOnClickListener(v -> openPatientDataActivity());
     }
 
@@ -32,5 +34,12 @@ public class PatientInfo extends AppCompatActivity {
     private void openPatientDataActivity() {
         Intent intent = new Intent(this, PatientData.class);
         startActivity(intent);
+    }
+
+    private void openDashboardActivity() {
+        Intent intent = new Intent(this, Dashboard.class);
+        startActivity(intent);
+        // make sure to close this activity, since we aren't returning to it
+        this.finish();
     }
 }
