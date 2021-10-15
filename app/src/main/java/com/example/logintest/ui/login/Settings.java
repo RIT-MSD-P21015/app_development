@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.logintest.R;
 
@@ -16,10 +17,21 @@ public class Settings extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
+        // Grab all the stuff on screen
         Button aboutButton = findViewById(R.id.button_about);
         Button styleButton = findViewById(R.id.button_style);
         Button clearDataButton = findViewById(R.id.button_clear_data);
         Button returnDashboardButton = findViewById(R.id.button_return_main_settings);
+        TextView textViewSettings = findViewById(R.id.textViewSettings);
+
+        // Set size of textViews
+        textViewSettings.setTextSize(SettingsStyle.getFontSize());
+
+        // Set size of buttons
+        aboutButton.setTextSize(SettingsStyle.getFontSize());
+        styleButton.setTextSize(SettingsStyle.getFontSize());
+        clearDataButton.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
 
         aboutButton.setOnClickListener(v -> openAboutActivity());
         styleButton.setOnClickListener(v -> openStyleActivity());
