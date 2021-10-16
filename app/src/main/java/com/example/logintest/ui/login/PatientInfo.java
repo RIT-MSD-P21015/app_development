@@ -3,6 +3,7 @@ package com.example.logintest.ui.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,14 +16,43 @@ public class PatientInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_info);
 
-        Button startSurveyButton = (Button) findViewById(R.id.button_take_survey);
-        Button seePatientDataButton = (Button) findViewById(R.id.button_see_data);
-
+        // Grab all the stuff on screen
+        Button startSurveyButton = findViewById(R.id.button_take_survey);
+        Button seePatientDataButton = findViewById(R.id.button_see_data);
         Button returnDashboardButton = findViewById(R.id.button_return_main_patient_info);
+        TextView textViewPatientInfo = findViewById(R.id.textViewPatientInfo);
 
+        // Set size of textViews
+        textViewPatientInfo.setTextSize(SettingsStyle.getFontSize());
+
+        // Set size of buttons
+        startSurveyButton.setTextSize(SettingsStyle.getFontSize());
+        seePatientDataButton.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+
+        // Set the on click listener
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
         startSurveyButton.setOnClickListener(v -> openPatientSurveyActivity());
         seePatientDataButton.setOnClickListener(v -> openPatientDataActivity());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Grab all the stuff on screen
+        Button startSurveyButton = findViewById(R.id.button_take_survey);
+        Button seePatientDataButton = findViewById(R.id.button_see_data);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_patient_info);
+        TextView textViewPatientInfo = findViewById(R.id.textViewPatientInfo);
+
+        // Set size of textViews
+        textViewPatientInfo.setTextSize(SettingsStyle.getFontSize());
+
+        // Set size of buttons
+        startSurveyButton.setTextSize(SettingsStyle.getFontSize());
+        seePatientDataButton.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
     }
 
     private void openPatientSurveyActivity() {

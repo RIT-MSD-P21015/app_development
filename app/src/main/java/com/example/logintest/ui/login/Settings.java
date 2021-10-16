@@ -33,10 +33,32 @@ public class Settings extends AppCompatActivity {
         clearDataButton.setTextSize(SettingsStyle.getFontSize());
         returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
 
+        // Set the on click listener
         aboutButton.setOnClickListener(v -> openAboutActivity());
         styleButton.setOnClickListener(v -> openStyleActivity());
         clearDataButton.setOnClickListener(v -> confirmClear());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Grab all the stuff on screen
+        Button aboutButton = findViewById(R.id.button_about);
+        Button styleButton = findViewById(R.id.button_style);
+        Button clearDataButton = findViewById(R.id.button_clear_data);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_settings);
+        TextView textViewSettings = findViewById(R.id.textViewSettings);
+
+        // Set size of textViews
+        textViewSettings.setTextSize(SettingsStyle.getFontSize());
+
+        // Set size of buttons
+        aboutButton.setTextSize(SettingsStyle.getFontSize());
+        styleButton.setTextSize(SettingsStyle.getFontSize());
+        clearDataButton.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
     }
 
     private void openAboutActivity() {

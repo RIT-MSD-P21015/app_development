@@ -22,15 +22,17 @@
         android:id="@+id/textViewFontSize"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginLeft="56dp"
         android:text="Font Size:"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/radioGroupFontSize"
-        app:layout_constraintStart_toStartOf="@+id/radioGroupFontSize" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
         android:id="@+id/radioGroupFontSize"
-        android:layout_width="236dp"
-        android:layout_height="73dp"
+        android:layout_width="414dp"
+        android:layout_height="59dp"
         android:layout_marginTop="100dp"
         android:gravity="center"
         android:orientation="horizontal"
@@ -48,13 +50,15 @@
             android:id="@+id/radioButtonFontNormal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Normal" />
+            android:text="Normal"
+            android:textSize="20sp" />
 
         <RadioButton
             android:id="@+id/radioButtonFontLarge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Large" />
+            android:text="Large"
+            android:textSize="34sp" />
     </RadioGroup>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
