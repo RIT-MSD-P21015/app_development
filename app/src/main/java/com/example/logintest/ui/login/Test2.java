@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.logintest.R;
@@ -25,10 +26,31 @@ public class Test2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test2);
 
+        // Grab all the stuff on screen
         Button startTest = findViewById(R.id.button_start_test2);
         Button endTest = findViewById(R.id.button_end_test2);
         Button returnDashboardButton = findViewById(R.id.button_return_to_main_test_2);
+        TextView textViewTest2 = findViewById(R.id.textViewTest2Title);
+        TextView textViewTest2Instr1 = findViewById(R.id.textViewTest2Instr1);
+        TextView textViewTest2Instr2 = findViewById(R.id.textViewTest2Instr2);
+        TextView textViewTest2Instr3 = findViewById(R.id.textViewTest2Instr3);
+        TextView textViewTest2Instr4 = findViewById(R.id.textViewTest2Instr4);
+        TextView textViewTest2Instr5 = findViewById(R.id.textViewTest2Instr5);
 
+        // Set size of textViews
+        textViewTest2.setTextSize(SettingsStyle.getFontSize());
+        textViewTest2Instr1.setTextSize(SettingsStyle.getFontSize());
+        textViewTest2Instr2.setTextSize(SettingsStyle.getFontSize());
+        textViewTest2Instr3.setTextSize(SettingsStyle.getFontSize());
+        textViewTest2Instr4.setTextSize(SettingsStyle.getFontSize());
+        textViewTest2Instr5.setTextSize(SettingsStyle.getFontSize());
+
+        // Set size of buttons
+        startTest.setTextSize(SettingsStyle.getFontSize());
+        endTest.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+
+        // Set the on click listener
         startTest.setOnClickListener(v -> collectSecondTest());
         endTest.setOnClickListener(v -> endCollectSecondTest());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());

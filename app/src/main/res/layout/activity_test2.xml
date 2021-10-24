@@ -7,31 +7,37 @@
     tools:context=".ui.login.Test2">
 
     <TextView
-        android:id="@+id/textView47"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewTest2Instr5"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="5. Press the End Test Button"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView36" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest2Instr4" />
 
     <TextView
-        android:id="@+id/textView35"
-        android:layout_width="337dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="30dp"
+        android:id="@+id/textViewTest2Instr3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="3. With your eyes closed start the test. The test will let you know when you can stop with an audio que."
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView46" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest2Instr2" />
 
     <TextView
-        android:id="@+id/textView31"
+        android:id="@+id/textViewTest2Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
@@ -42,40 +48,49 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewTest2Instr1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="1. Press the Start Test Button"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView31" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest2Title" />
 
     <TextView
-        android:id="@+id/textView46"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewTest2Instr2"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="2. Stand up straight"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView34" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest2Instr1" />
 
     <TextView
-        android:id="@+id/textView36"
-        android:layout_width="296dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="30dp"
+        android:id="@+id/textViewTest2Instr4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="4. Do the same test with your eyes open"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView35" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest2Instr3" />
 
     <Button
         android:id="@+id/button_start_test2"

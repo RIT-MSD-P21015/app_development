@@ -2,6 +2,7 @@ package com.example.logintest.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -9,12 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintest.R;
 
+import java.util.Locale;
+
 public class Dashboard extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
+
 
         // Grab all the stuff on screen
         Button patientButton = findViewById(R.id.button_patient_info);

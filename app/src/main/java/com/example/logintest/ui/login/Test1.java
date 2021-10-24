@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.logintest.R;
@@ -26,10 +27,31 @@ public class Test1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test1);
 
+        // Grab all the stuff on screen
         Button startTest = findViewById(R.id.button_start_test1);
         Button endTest = findViewById(R.id.button_end_test1);
         Button returnDashboardButton = findViewById(R.id.button_return_main_test_1);
+        TextView textViewTest1 = findViewById(R.id.textViewTest1Title);
+        TextView textViewTest1Instr1 = findViewById(R.id.textViewTest1Instr1);
+        TextView textViewTest1Instr2 = findViewById(R.id.textViewTest1Instr2);
+        TextView textViewTest1Instr3 = findViewById(R.id.textViewTest1Instr3);
+        TextView textViewTest1Instr4 = findViewById(R.id.textViewTest1Instr4);
+        TextView textViewTest1Instr5 = findViewById(R.id.textViewTest1Instr5);
 
+        // Set size of textViews
+        textViewTest1.setTextSize(SettingsStyle.getFontSize());
+        textViewTest1Instr1.setTextSize(SettingsStyle.getFontSize());
+        textViewTest1Instr2.setTextSize(SettingsStyle.getFontSize());
+        textViewTest1Instr3.setTextSize(SettingsStyle.getFontSize());
+        textViewTest1Instr4.setTextSize(SettingsStyle.getFontSize());
+        textViewTest1Instr5.setTextSize(SettingsStyle.getFontSize());
+
+        // Set size of buttons
+        startTest.setTextSize(SettingsStyle.getFontSize());
+        endTest.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+
+        // Set the on click listener
         startTest.setOnClickListener(v -> collectFirstTest());
         endTest.setOnClickListener(v -> endCollectFirstTest());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
@@ -37,6 +59,7 @@ public class Test1 extends AppCompatActivity {
         tdm = new TestDataManager();
         dataCollector = new DataCollector(this, tdm);
     }
+
 
     private void collectFirstTest() {
         // start data collection for first test...start logging data

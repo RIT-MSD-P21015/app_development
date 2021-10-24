@@ -3,6 +3,7 @@ package com.example.logintest.ui.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,12 +16,38 @@ public class PhysicalTest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_physical_test);
 
+        // Grab all the stuff on screen
         Button startTestButton = (Button) findViewById(R.id.button_start_test);
         Button returnDashboardButton = (Button) findViewById(R.id.button_return_main_physical_test_page);
+        TextView textViewPhysicalTest = findViewById(R.id.textViewPhysicalTest);
 
+        // Set size of textViews
+        textViewPhysicalTest.setTextSize(SettingsStyle.getFontSize());
+
+        // Set size of buttons
+        startTestButton.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+
+        // Set the on click listener
         startTestButton.setOnClickListener(v -> openTestActivity());
-
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        // Grab all the stuff on screen
+        Button startTestButton = (Button) findViewById(R.id.button_start_test);
+        Button returnDashboardButton = (Button) findViewById(R.id.button_return_main_physical_test_page);
+        TextView textViewPhysicalTest = findViewById(R.id.textViewPhysicalTest);
+
+        // Set size of textViews
+        textViewPhysicalTest.setTextSize(SettingsStyle.getFontSize());
+
+        // Set size of buttons
+        startTestButton.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
     }
 
     private void openDashboardActivity() {
