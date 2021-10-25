@@ -3,8 +3,8 @@ package com.example.logintest.ui.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
-import android.util.Log;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,8 +27,6 @@ public class PatientTest extends AppCompatActivity {
                 ConvertTextToSpeech();
             }
         });
-
-
 
         // Grab all the stuff on screen
         Button startTestButton = findViewById(R.id.button_start_test_first);

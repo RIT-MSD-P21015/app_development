@@ -17,7 +17,7 @@ import com.example.logintest.R;
 
 public class SettingsStyle extends AppCompatActivity {
 
-    private static Integer fontSize = 20;
+    private static Integer fontSize = 34;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +43,13 @@ public class SettingsStyle extends AppCompatActivity {
                 if (isChecked)
                 {
                     if (checkedRadioButton.getText().equals("Small")){
-                        fontSize = 14;
+                        fontSize = 24;
                     }
                     else if (checkedRadioButton.getText().equals("Normal")){
-                        fontSize = 20;
+                        fontSize = 34;
                     }
                     else if (checkedRadioButton.getText().equals("Large")){
-                        fontSize = 34;
+                        fontSize = 44;
                     }
 
                     textViewFontSize.setTextSize(fontSize);

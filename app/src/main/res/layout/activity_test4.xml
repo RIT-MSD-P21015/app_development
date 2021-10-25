@@ -7,34 +7,40 @@
     tools:context=".ui.login.Test4">
 
     <TextView
-        android:id="@+id/textView51"
-        android:layout_width="333dp"
+        android:id="@+id/textViewTest4Instr4"
+        android:layout_width="0dp"
         android:layout_height="56dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="4. Press the End Test Button after the 5 repeats"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest4Instr3" />
 
     <TextView
-        android:id="@+id/textView50"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewTest4Instr1"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="40dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="1. Press the Start Test Button"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView37" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest4Title" />
 
     <Button
         android:id="@+id/button_start_test4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/start_test"
         app:layout_constraintBottom_toTopOf="@+id/button_end_test4"
         app:layout_constraintEnd_toEndOf="@+id/button_end_test4"
@@ -44,7 +50,7 @@
         android:id="@+id/button_end_test4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="24dp"
         android:text="@string/end_test"
         app:layout_constraintBottom_toTopOf="@+id/button_return_main_test4"
         app:layout_constraintEnd_toEndOf="@+id/button_return_main_test4"
@@ -62,7 +68,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView37"
+        android:id="@+id/textViewTest4Title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -74,26 +80,32 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView40"
-        android:layout_width="340dp"
+        android:id="@+id/textViewTest4Instr2"
+        android:layout_width="0dp"
         android:layout_height="55dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="2. From a sitting position, stand up normally"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView50" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest4Instr1" />
 
     <TextView
-        android:id="@+id/textView41"
-        android:layout_width="wrap_content"
+        android:id="@+id/textViewTest4Instr3"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="44dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
         android:text="3. Repeat this 5 times during the test"
         android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest4Instr2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

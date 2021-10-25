@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.logintest.R;
@@ -28,7 +29,23 @@ public class Test5 extends AppCompatActivity {
         Button startTest = findViewById(R.id.button_start_test5);
         Button endTest = findViewById(R.id.button_end_test5);
         Button returnDashboardButton = findViewById(R.id.button_return_main_test5);
+        TextView textViewTest5 = findViewById(R.id.textViewTest5Title);
+        TextView textViewTest5Instr1 = findViewById(R.id.textViewTest5Instr1);
+        TextView textViewTest5Instr2 = findViewById(R.id.textViewTest5Instr2);
+        TextView textViewTest5Instr3 = findViewById(R.id.textViewTest5Instr3);
 
+        // Set size of textViews
+        textViewTest5.setTextSize(SettingsStyle.getFontSize());
+        textViewTest5Instr1.setTextSize(SettingsStyle.getFontSize());
+        textViewTest5Instr2.setTextSize(SettingsStyle.getFontSize());
+        textViewTest5Instr3.setTextSize(SettingsStyle.getFontSize());
+
+        // Set size of buttons
+        startTest.setTextSize(SettingsStyle.getFontSize());
+        endTest.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+
+        // Set the on click listener
         startTest.setOnClickListener(v -> collectFifthTest());
         endTest.setOnClickListener(v -> endCollectFifthTest());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
