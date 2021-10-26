@@ -6,8 +6,6 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
@@ -36,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = findViewById(R.id.username);
+        final EditText usernameEditText = findViewById(R.id.email);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.button_login);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
@@ -125,6 +123,9 @@ public class LoginActivity extends AppCompatActivity {
 
     // this function opens the Dashboard activity
     public void openActivityDashboard() {
+//        if (loginViewModel.login(usernameEditText.getText().toString()
+//
+//        }
         Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
         this.finish();
