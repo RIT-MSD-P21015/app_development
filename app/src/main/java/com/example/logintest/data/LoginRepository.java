@@ -51,4 +51,25 @@ public class LoginRepository {
         }
         return result;
     }
+
+    /**
+     * Create a new user on the database and logs in
+     *
+     * returns result: failure to create user, failure to login, or successful login
+     */
+    public Result<LoggedInUser> createUser(String firstName, String lastName, String username, String password) {
+        Result<LoggedInUser> result = dataSource.createUser(firstName, lastName, username, password);
+        // was the user created successfully?
+        if (result instanceof Result.Success) {
+            // login the user
+            result = dataSource.login(username, password);
+
+            // was the user logged in?
+            if (result instanceof Result.Success) {
+                setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
+            }
+        }
+
+        return result;
+    }
 }

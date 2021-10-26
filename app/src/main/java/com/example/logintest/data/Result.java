@@ -33,6 +33,19 @@ public class Result<T> {
         }
     }
 
+    // Failed sub-class
+    public final static class Failure<T> extends Result {
+        private T data;
+
+        public Failure(T data) {
+            this.data = data;
+        }
+
+        public T getData() {
+            return this.data;
+        }
+    }
+
     // Error sub-class
     public final static class Error extends Result {
         private Exception error;
