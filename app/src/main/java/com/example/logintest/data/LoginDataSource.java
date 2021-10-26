@@ -18,8 +18,10 @@ public class LoginDataSource {
             // TODO check if token received
             String token = null;
 
-            if (token) {
-                // TODO get display first and last name from /api/user
+            if (token.equals(null)) {
+                // TODO get first and last name from /api/user
+                String firstName = "John";
+                String lastName = "Doe";
 
                 String displayName = firstName + " " + lastName;
                 LoggedInUser currentUser = new LoggedInUser(token, displayName);
@@ -40,6 +42,7 @@ public class LoginDataSource {
 
             // TODO check if success code returned
             int resultCode = 0;
+            int good = 0;
 
             if (resultCode == good) {
                 return new Result.Success<>(true);
