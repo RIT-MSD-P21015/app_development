@@ -1,8 +1,13 @@
 package com.example.logintest.ui.login;
 
+import android.Manifest;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -14,10 +19,13 @@ import android.widget.Toast;
 
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.logintest.R;
 import com.example.logintest.data.model.LoggedInUser;
+
+import org.json.JSONException;
 
 import java.io.IOException;
 
@@ -30,9 +38,15 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-//        getSupportActionBar().hide(); // hide the title bar
-//        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
-//                WindowManager.LayoutParams.FLAG_FULLSCREEN); //enable full screen
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
+        try {
+            // JSON here
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 
         setContentView(R.layout.activity_login);
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
@@ -41,6 +55,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText usernameEditText = findViewById(R.id.email);
         final EditText passwordEditText = findViewById(R.id.password);
         final Button loginButton = findViewById(R.id.button_login);
+        final Button buttonCreateAccount = findViewById(R.id.buttonCreateAccountMain);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         loginViewModel.getLoginFormState().observe(this, loginFormState -> {
@@ -111,6 +126,8 @@ public class LoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         });
+
+        buttonCreateAccount.setOnClickListener(v -> openActivityCreateAccount());
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -136,6 +153,11 @@ public class LoginActivity extends AppCompatActivity {
         Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
         this.finish();
+    }
+
+    public void openActivityCreateAccount(){
+        Intent intent = new Intent(this, CreateUser.class);
+        startActivity(intent);
     }
 
 

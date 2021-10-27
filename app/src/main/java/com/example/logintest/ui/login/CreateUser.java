@@ -39,8 +39,8 @@ public class CreateUser extends AppCompatActivity {
         editTextCreateConfirmPassword.setTextSize(SettingsStyle.getFontSize());
 
         // Set size of buttons
-        createAccount.setTextSize(SettingsStyle.getFontSize());
-        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+//        createAccount.setTextSize(SettingsStyle.getFontSize());
+//        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
 
         // Set the on click listener
         createAccount.setOnClickListener(v -> createAccount());
@@ -55,7 +55,7 @@ public class CreateUser extends AppCompatActivity {
     }
 
     private void openDashboardActivity() {
-        Intent intent = new Intent(this, Dashboard.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();
