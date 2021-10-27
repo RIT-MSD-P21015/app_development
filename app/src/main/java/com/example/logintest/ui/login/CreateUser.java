@@ -51,13 +51,7 @@ public class CreateUser extends AppCompatActivity {
 
     private void createAccount() {
         // Create a popup that says account created
-        new AlertDialog.Builder(this)
-//                .setIcon(android.R.drawable.ic_dialog_alert)
-                .setTitle("Create Account")
-                .setMessage("Account Created")
-                .setPositiveButton("Okay", (dialog, which) -> finish())
-//                .setNegativeButton("No", null)
-                .show();
+
     }
 
     private void openDashboardActivity() {

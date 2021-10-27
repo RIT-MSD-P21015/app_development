@@ -17,10 +17,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.logintest.R;
+import com.example.logintest.data.model.LoggedInUser;
+
+import java.io.IOException;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -101,7 +105,11 @@ public class LoginActivity extends AppCompatActivity {
             loadingProgressBar.setVisibility(View.VISIBLE);
             loginViewModel.login(usernameEditText.getText().toString(),
                     passwordEditText.getText().toString());
-            openActivityDashboard();
+            try {
+                openActivityDashboard();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 
@@ -122,12 +130,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // this function opens the Dashboard activity
-    public void openActivityDashboard() {
-//        if (loginViewModel.login(usernameEditText.getText().toString()
-//
-//        }
+    public void openActivityDashboard() throws IOException {
+        String body = "{ \"firstname\" : \"john\", \"lastname\" : \"doe\", \"email\" : \"jdoe@gmail.com\", \"password\" : \"secret\" }";
+        LoggedInUser.sendPost("/api/user",body);
         Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
         this.finish();
     }
+
+
 }
