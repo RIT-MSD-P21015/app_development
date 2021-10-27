@@ -110,11 +110,6 @@ public class LoginActivity extends AppCompatActivity {
             loadingProgressBar.setVisibility(View.VISIBLE);
             loginViewModel.login(usernameEditText.getText().toString(),
                     passwordEditText.getText().toString());
-            try {
-                openActivityDashboard();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         });
 
         buttonCreateAccount.setOnClickListener(v -> openActivityCreateAccount());
@@ -124,6 +119,12 @@ public class LoginActivity extends AppCompatActivity {
         String welcome = getString(R.string.welcome) + model.getDisplayName();
         // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
+
+        try {
+            openActivityDashboard();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private void showLoginFailed(@StringRes Integer errorString) {
