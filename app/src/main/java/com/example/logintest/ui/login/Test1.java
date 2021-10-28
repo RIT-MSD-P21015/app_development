@@ -47,9 +47,9 @@ public class Test1 extends AppCompatActivity {
         textViewTest1Instr5.setTextSize(SettingsStyle.getFontSize());
 
         // Set size of buttons
-        startTest.setTextSize(SettingsStyle.getFontSize());
-        endTest.setTextSize(SettingsStyle.getFontSize());
-        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+//        startTest.setTextSize(SettingsStyle.getFontSize());
+//        endTest.setTextSize(SettingsStyle.getFontSize());
+//        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
 
         // Set the on click listener
         startTest.setOnClickListener(v -> collectFirstTest());
