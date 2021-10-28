@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -20,6 +21,10 @@ public class CreateUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_user);
+
+        // TODO don't run network on main
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
 
         // Grab all the stuff on screen
         Button createAccount = findViewById(R.id.buttonCreateAccount);
@@ -59,7 +64,7 @@ public class CreateUser extends AppCompatActivity {
     }
 
     private void createAccount(String firstName, String lastName, String email, String passwd) {
-        String body = "{ \"firstname\" : \"" + firstName + "\", \"lastName\" : \"" + lastName + "\", " +
+        String body = "{ \"firstname\" : \"" + firstName + "\", \"lastname\" : \"" + lastName + "\", " +
                 "\"email\" : \"" + email + "\", \"password\" : \"" + passwd + "\" }";
 
         // check response for existing email or success
