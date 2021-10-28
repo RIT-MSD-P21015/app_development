@@ -1,13 +1,9 @@
 package com.example.logintest.ui.login;
 
-import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -17,16 +13,12 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import androidx.annotation.RequiresApi;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.logintest.R;
-import com.example.logintest.data.NetworkManager;
-import com.example.logintest.data.model.LoggedInUser;
-
-import org.json.JSONException;
 
 import java.io.IOException;
 
@@ -35,6 +27,7 @@ public class LoginActivity extends AppCompatActivity {
     private LoginViewModel loginViewModel;
 
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +38,7 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText usernameEditText = findViewById(R.id.email);
         final EditText passwordEditText = findViewById(R.id.password);
-        final Button loginButton = findViewById(R.id.button_login);
+        final Button buttonSignIn = findViewById(R.id.button_login);
         final Button buttonCreateAccount = findViewById(R.id.buttonCreateAccountMain);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
@@ -53,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             if (loginFormState == null) {
                 return;
             }
-            loginButton.setEnabled(loginFormState.isDataValid());
+            buttonSignIn.setEnabled(loginFormState.isDataValid());
             if (loginFormState.getUsernameError() != null) {
                 usernameEditText.setError(getString(loginFormState.getUsernameError()));
             }
@@ -107,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
             return false;
         });
 
-        loginButton.setOnClickListener(v -> {
+        buttonSignIn.setOnClickListener(v -> {
             loadingProgressBar.setVisibility(View.VISIBLE);
             loginViewModel.login(usernameEditText.getText().toString(),
                     passwordEditText.getText().toString());
