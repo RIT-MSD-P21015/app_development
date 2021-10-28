@@ -18,7 +18,7 @@ public class LoginDataSource {
             // TODO check if token received
             String token = null;
 
-            if (token.equals(null)) {
+            if (token == null) {
                 // TODO get first and last name from /api/user
                 String firstName = "John";
                 String lastName = "Doe";
@@ -32,26 +32,6 @@ public class LoginDataSource {
             }
         } catch (Exception e) {
             return new Result.Error(new IOException("Error logging in", e));
-        }
-    }
-
-    public Result<LoggedInUser> createUser(String firstName, String lastName, String username, String password) {
-        try {
-
-            // TODO POST info to /api/user
-
-            // TODO check if success code returned
-            int resultCode = 0;
-            int good = 0;
-
-            if (resultCode == good) {
-                return new Result.Success<>(true);
-            }
-            else{
-                return new Result.Failure<>("Failed to create user"); // TODO send server error?
-            }
-        } catch (Exception e) {
-            return new Result.Error(new IOException("Error creating user", e));
         }
     }
 

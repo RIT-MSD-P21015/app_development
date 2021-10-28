@@ -10,6 +10,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.logintest.R;
+import com.example.logintest.data.NetworkManager;
+
+import java.io.IOException;
 
 public class CreateUser extends AppCompatActivity {
 
@@ -43,18 +46,41 @@ public class CreateUser extends AppCompatActivity {
 //        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
 
         // Set the on click listener
-        createAccount.setOnClickListener(v -> createAccount());
+        // TODO leave disabled until all data good
+        createAccount.setOnClickListener(v -> {
+            createAccount(
+                    editTextFirstName.getText().toString(),
+                    editTextLastName.getText().toString(),
+                    editTextCreateEmail.getText().toString(),
+                    editTextCreatePassword.getText().toString()
+            );
+        });
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
     }
 
+    private void createAccount(String firstName, String lastName, String email, String passwd) {
+        String body = "{ \"firstname\" : \"" + firstName + "\", \"lastName\" : \"" + lastName + "\", " +
+                "\"email\" : \"" + email + "\", \"password\" : \"" + passwd + "\" }";
 
+        // check response for existing email or success
+        int code = 0;
+        try {
+            code = NetworkManager.sendPost("/api/user",body);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
-    private void createAccount() {
-        // Create a popup that says account created
+        // on success, move to openDashboardActivity
+        if(code == 201) {
+            // TODO Create a popup that says account created
+            openDashboardActivity();
+        }
 
+        // TODO on failure, pop up warning existing user
     }
 
     private void openDashboardActivity() {
+        // TODO how to set up login with new info?
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it

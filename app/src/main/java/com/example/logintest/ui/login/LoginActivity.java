@@ -23,6 +23,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.logintest.R;
+import com.example.logintest.data.NetworkManager;
 import com.example.logintest.data.model.LoggedInUser;
 
 import org.json.JSONException;
@@ -139,8 +140,6 @@ public class LoginActivity extends AppCompatActivity {
 
     // this function opens the Dashboard activity
     public void openActivityDashboard() throws IOException {
-        String body = "{ \"firstname\" : \"john\", \"lastname\" : \"doe\", \"email\" : \"jdoe@gmail.com\", \"password\" : \"secret\" }";
-        LoggedInUser.sendPost("/api/user",body);
         Intent intent = new Intent(this, Dashboard.class);
         startActivity(intent);
         this.finish();
