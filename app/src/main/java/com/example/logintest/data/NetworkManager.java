@@ -3,7 +3,6 @@ package com.example.logintest.data;
 import android.os.Build;
 import android.util.Log;
 
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 
 import org.json.JSONException;

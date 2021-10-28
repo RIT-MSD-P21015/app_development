@@ -9,8 +9,6 @@ import com.example.logintest.data.model.LoggedInUser;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 
 /**
  * Class that handles authentication w/ login credentials and retrieves user information.

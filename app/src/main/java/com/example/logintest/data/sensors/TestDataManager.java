@@ -1,7 +1,5 @@
 package com.example.logintest.data.sensors;
 
-import android.hardware.Sensor;
-
 import java.util.ArrayList;
 
 // TODO implements serializable?

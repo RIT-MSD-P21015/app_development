@@ -2,15 +2,12 @@ package com.example.logintest.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintest.R;
-
-import java.util.Locale;
 
 public class Dashboard extends AppCompatActivity {
 

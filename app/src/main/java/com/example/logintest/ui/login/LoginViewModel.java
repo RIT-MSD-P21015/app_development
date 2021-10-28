@@ -1,17 +1,17 @@
 package com.example.logintest.ui.login;
 
+import android.os.Build;
+import android.util.Patterns;
+
 import androidx.annotation.RequiresApi;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import android.os.Build;
-import android.util.Patterns;
-
+import com.example.logintest.R;
 import com.example.logintest.data.LoginRepository;
 import com.example.logintest.data.Result;
 import com.example.logintest.data.model.LoggedInUser;
-import com.example.logintest.R;
 
 public class LoginViewModel extends ViewModel {
 
