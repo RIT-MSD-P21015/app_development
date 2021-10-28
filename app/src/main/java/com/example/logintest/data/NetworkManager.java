@@ -57,7 +57,7 @@ public class NetworkManager {
                 response.append(responseLine.trim());
             }
             Log.d("sendPost",response.toString());
-            
+
         }
         // TODO better error handling?
         return con.getResponseCode();
