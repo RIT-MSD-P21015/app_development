@@ -11,11 +11,15 @@ import com.example.logintest.R;
 
 public class Dashboard extends AppCompatActivity {
 
+    private String token = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        Bundle extras = getIntent().getExtras();
+        token = extras.getString("token");
 
         // Grab all the stuff on screen
         Button patientButton = findViewById(R.id.button_patient_info);
@@ -74,6 +78,7 @@ public class Dashboard extends AppCompatActivity {
 
     public void openActivityPatientInfo() {
         Intent intent = new Intent(this, PatientInfo.class);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 

@@ -84,7 +84,7 @@ public class Test1 extends AppCompatActivity {
         // end data collection for first test
         dataCollector.stop();
 
-        // TODO send data to server
+        // TODO fire and forget submit data to database in asynch
 
         String FirstTestEnd = "First Test ENDED";
         Toast.makeText(getApplicationContext(), FirstTestEnd, Toast.LENGTH_LONG).show();

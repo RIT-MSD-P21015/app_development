@@ -21,7 +21,12 @@ import java.util.Base64;
 
 public class NetworkManager {
 
-    private final static String BaseURL = "http://fallriskdb-vm.main.ad.rit.edu:5000";
+    //private final static String BaseURL = "http://fallriskdb-vm.main.ad.rit.edu:5000";
+    private final static String BaseURL = "http://192.168.50.254:5000";
+
+    public static String getBaseURL() {
+        return BaseURL;
+    }
 
     // returns page data
     public static String sendGET(String location, String token) throws IOException {
@@ -48,6 +53,7 @@ public class NetworkManager {
             return "Bad response";
         }
     }
+
     private static String readStream(InputStream is) throws IOException {
         StringBuilder sb = new StringBuilder();
         BufferedReader r = new BufferedReader(new InputStreamReader(is),1000);
@@ -100,7 +106,6 @@ public class NetworkManager {
         con.setRequestProperty("Content-Type", "application/json; utf-8");
         con.setRequestProperty("Accept", "application/json");
         con.setRequestProperty("Authorization", authHeaderValue);
-        con.setDoOutput(true);
 
         String token = "";
         try(BufferedReader br = new BufferedReader(

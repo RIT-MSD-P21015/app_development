@@ -19,6 +19,8 @@ public class LoginViewModel extends ViewModel {
     private MutableLiveData<LoginResult> loginResult = new MutableLiveData<>();
     private LoginRepository loginRepository;
 
+    private String authToken = null;
+
     LoginViewModel(LoginRepository loginRepository) {
         this.loginRepository = loginRepository;
     }
@@ -38,10 +40,15 @@ public class LoginViewModel extends ViewModel {
 
         if (result instanceof Result.Success) {
             LoggedInUser data = ((Result.Success<LoggedInUser>) result).getData();
+            authToken = data.getUserToken();
             loginResult.setValue(new LoginResult(new LoggedInUserView(data.getDisplayName())));
         } else {
             loginResult.setValue(new LoginResult(R.string.login_failed));
         }
+    }
+
+    public String getToken() {
+        return authToken;
     }
 
     public void loginDataChanged(String username, String password) {
