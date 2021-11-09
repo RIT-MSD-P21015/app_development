@@ -11,10 +11,15 @@ import com.example.logintest.R;
 
 public class PhysicalTest extends AppCompatActivity {
 
+    private String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_physical_test);
+
+        Bundle extras = getIntent().getExtras();
+        token = extras.getString("token");
 
         // Grab all the stuff on screen
         Button startTestButton = (Button) findViewById(R.id.button_start_test);
@@ -52,6 +57,7 @@ public class PhysicalTest extends AppCompatActivity {
 
     private void openDashboardActivity() {
         Intent intent = new Intent(this, Dashboard.class);
+        intent.putExtra("token", token);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();
@@ -60,6 +66,7 @@ public class PhysicalTest extends AppCompatActivity {
     // move to the PatientTest activity page...start the tests
     private void openTestActivity() {
         Intent intent = new Intent(this, PatientTest.class);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 }

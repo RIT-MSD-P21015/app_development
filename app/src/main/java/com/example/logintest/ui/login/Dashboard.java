@@ -84,16 +84,19 @@ public class Dashboard extends AppCompatActivity {
 
     public void openActivityPhysicalTest() {
         Intent intent = new Intent(this, PhysicalTest.class);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     public void openActivityResults() {
         Intent intent = new Intent(this, Results.class);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     public void openActivitySettings() {
         Intent intent = new Intent(this, Settings.class);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 

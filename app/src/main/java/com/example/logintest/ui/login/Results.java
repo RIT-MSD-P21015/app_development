@@ -12,22 +12,33 @@ import com.example.logintest.R;
 
 public class Results extends AppCompatActivity {
 
+    private String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
 
-        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar_results);
+        Bundle extras = getIntent().getExtras();
+        token = extras.getString("token");
 
+        // Grab all the stuff on screen
+        final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar_results);
         Button seeResultsButton = (Button) findViewById(R.id.button_see_results);
         Button returnDashboardButton = findViewById(R.id.button_return_main_results);
 
+        // Set size of buttons
+        seeResultsButton.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+
+        // Set the on click listener
         seeResultsButton.setOnClickListener(v -> progressBar.setVisibility(View.VISIBLE));
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
     }
 
     private void openDashboardActivity() {
         Intent intent = new Intent(this, Dashboard.class);
+        intent.putExtra("token", token);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();
