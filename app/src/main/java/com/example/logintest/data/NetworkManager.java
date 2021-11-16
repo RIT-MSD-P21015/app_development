@@ -63,6 +63,32 @@ public class NetworkManager {
         return sb.toString();
     }
 
+    public static int sendReset(String location, String body) throws IOException {
+        URL url = new URL(BaseURL.concat(location));
+        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+        con.setRequestMethod("POST");
+        con.setRequestProperty("Content-Type", "application/json; utf-8");
+        con.setRequestProperty("Accept", "application/json");
+        con.setDoOutput(true);
+        try(OutputStream os = con.getOutputStream()) {
+            byte[] input = body.getBytes("utf-8");
+            os.write(input, 0, input.length);
+        }
+        try(BufferedReader br = new BufferedReader(
+                new InputStreamReader(con.getInputStream(), "utf-8"))) {
+            StringBuilder response = new StringBuilder();
+            String responseLine = null;
+            while ((responseLine = br.readLine()) != null) {
+                response.append(responseLine.trim());
+            }
+            Log.d("sendPost",response.toString());
+
+        }
+        // TODO better error handling?
+        return con.getResponseCode();
+    }
+
+
     public static int sendPost(String location, String body) throws IOException {
         URL url = new URL(BaseURL.concat(location));
         HttpURLConnection con = (HttpURLConnection) url.openConnection();

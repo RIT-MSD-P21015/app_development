@@ -103,6 +103,8 @@ public class Dashboard extends AppCompatActivity {
     public void logout() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        // TODO add token revoke
+        this.finish();
     }
 
 

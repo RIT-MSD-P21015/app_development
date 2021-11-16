@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         final EditText passwordEditText = findViewById(R.id.password);
         final Button buttonSignIn = findViewById(R.id.button_login);
         final Button buttonCreateAccount = findViewById(R.id.buttonCreateAccountMain);
+        final Button buttonForgotPassword = findViewById(R.id.buttonForgotPassword);
         final ProgressBar loadingProgressBar = findViewById(R.id.loading);
 
         loginViewModel.getLoginFormState().observe(this, loginFormState -> {
@@ -112,6 +113,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         buttonCreateAccount.setOnClickListener(v -> openActivityCreateAccount());
+        buttonForgotPassword.setOnClickListener(v -> openActivityForgotPassword());
     }
 
     private void updateUiWithUser(LoggedInUserView model) {
@@ -131,9 +133,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // this function is called when the forgot password button is pressed
-    public void resetPassword(View view) {
-        String passReset = "Pressed reset password button";
-        Toast.makeText(getApplicationContext(), passReset, Toast.LENGTH_LONG).show();
+    public void openActivityForgotPassword() {
+        Intent intent = new Intent(this, ResetPassword.class);
+        intent.putExtra("token", loginViewModel.getToken());
+        startActivity(intent);
     }
 
     // this function opens the Dashboard activity
