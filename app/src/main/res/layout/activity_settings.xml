@@ -43,12 +43,12 @@
         android:id="@+id/button_about"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="44dp"
         android:text="@string/about"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewSettings" />
+        app:layout_constraintTop_toBottomOf="@+id/textToSpeechSwitch" />
 
     <Button
         android:id="@+id/button_return_main_settings"
@@ -60,5 +60,16 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_clear_data" />
+
+    <Switch
+        android:id="@+id/textToSpeechSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:minHeight="48dp"
+        android:text="Text-to-speech"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewSettings" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

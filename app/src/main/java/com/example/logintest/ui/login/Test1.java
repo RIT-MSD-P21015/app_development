@@ -16,8 +16,6 @@ import com.example.logintest.data.sensors.TestDataManager;
 
 public class Test1 extends AppCompatActivity {
 
-    // TODO serialize the data manager
-    private TestDataManager tdm;
     private DataCollector dataCollector;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -55,7 +53,8 @@ public class Test1 extends AppCompatActivity {
         endTest.setOnClickListener(v -> endCollectFirstTest());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
 
-        tdm = new TestDataManager();
+        // TODO serialize the data manager
+        TestDataManager tdm = new TestDataManager();
         dataCollector = new DataCollector(this, tdm);
     }
 
@@ -84,7 +83,7 @@ public class Test1 extends AppCompatActivity {
         // end data collection for first test
         dataCollector.stop();
 
-        // TODO fire and forget submit data to database in asynch
+        // TODO fire and forget submit data to database in async
 
         String FirstTestEnd = "First Test ENDED";
         Toast.makeText(getApplicationContext(), FirstTestEnd, Toast.LENGTH_LONG).show();

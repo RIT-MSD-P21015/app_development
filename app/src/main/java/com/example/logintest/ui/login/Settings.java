@@ -3,6 +3,7 @@ package com.example.logintest.ui.login;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -13,6 +14,7 @@ import com.example.logintest.R;
 public class Settings extends AppCompatActivity {
 
     private String token;
+    private static Boolean textToSpeech = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,10 @@ public class Settings extends AppCompatActivity {
         Button clearDataButton = findViewById(R.id.button_clear_data);
         Button returnDashboardButton = findViewById(R.id.button_return_main_settings);
         TextView textViewSettings = findViewById(R.id.textViewSettings);
+        Switch textToSpeechSwitch = findViewById(R.id.textToSpeechSwitch);
+
+        // Get value of textToSpeech Switch
+        textToSpeech = textToSpeechSwitch.isChecked();
 
         // Set size of textViews
         textViewSettings.setTextSize(SettingsStyle.getFontSize());
@@ -37,6 +43,7 @@ public class Settings extends AppCompatActivity {
         styleButton.setTextSize(SettingsStyle.getFontSize());
         clearDataButton.setTextSize(SettingsStyle.getFontSize());
         returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+        textToSpeechSwitch.setTextSize(SettingsStyle.getFontSize());
 
         // Set the on click listener
         aboutButton.setOnClickListener(v -> openAboutActivity());
@@ -100,5 +107,9 @@ public class Settings extends AppCompatActivity {
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();
+    }
+
+    public static Boolean getTextToSpeechBool() {
+        return textToSpeech;
     }
 }
