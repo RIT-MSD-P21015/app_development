@@ -69,6 +69,7 @@ public class PatientInfo extends AppCompatActivity {
     // move to the PatientTest activity page...start the tests
     private void openPatientDataActivity() {
         Intent intent = new Intent(this, PatientData.class);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 

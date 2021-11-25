@@ -60,4 +60,14 @@
             android:textSize="34sp" />
     </RadioGroup>
 
+    <Button
+        android:id="@+id/button_return_main_settings_style"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:text="@string/return_to_main_menu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupFontSize" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

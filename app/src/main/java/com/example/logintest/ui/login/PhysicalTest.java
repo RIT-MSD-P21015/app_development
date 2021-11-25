@@ -22,8 +22,8 @@ public class PhysicalTest extends AppCompatActivity {
         token = extras.getString("token");
 
         // Grab all the stuff on screen
-        Button startTestButton = (Button) findViewById(R.id.button_start_test);
-        Button returnDashboardButton = (Button) findViewById(R.id.button_return_main_physical_test_page);
+        Button startTestButton = findViewById(R.id.button_start_test);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_physical_test_page);
         TextView textViewPhysicalTest = findViewById(R.id.textViewPhysicalTest);
 
         // Set size of textViews
@@ -43,8 +43,8 @@ public class PhysicalTest extends AppCompatActivity {
         super.onResume();
 
         // Grab all the stuff on screen
-        Button startTestButton = (Button) findViewById(R.id.button_start_test);
-        Button returnDashboardButton = (Button) findViewById(R.id.button_return_main_physical_test_page);
+        Button startTestButton = findViewById(R.id.button_start_test);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_physical_test_page);
         TextView textViewPhysicalTest = findViewById(R.id.textViewPhysicalTest);
 
         // Set size of textViews

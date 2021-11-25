@@ -11,10 +11,15 @@ import com.example.logintest.R;
 
 public class PatientData extends AppCompatActivity {
 
+    private String token;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_data);
+
+        Bundle extras = getIntent().getExtras();
+        token = extras.getString("token");
 
         // Grab all the stuff on screen
         Button returnDashboardButton = findViewById(R.id.button_return_main_patient_data);
@@ -51,6 +56,7 @@ public class PatientData extends AppCompatActivity {
 
     private void openDashboardActivity() {
         Intent intent = new Intent(this, Dashboard.class);
+        intent.putExtra("token", token);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();

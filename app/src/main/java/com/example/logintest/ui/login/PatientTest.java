@@ -13,6 +13,8 @@ import com.example.logintest.R;
 import java.util.Locale;
 
 public class PatientTest extends AppCompatActivity {
+
+    private String token;
     TextToSpeech tts;
 
     @Override
@@ -20,16 +22,21 @@ public class PatientTest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_test);
 
+        Bundle extras = getIntent().getExtras();
+        token = extras.getString("token");
+
         tts=new TextToSpeech(PatientTest.this, status -> {
             if(status == TextToSpeech.SUCCESS){
                 tts.setLanguage(Locale.US);
-                ConvertTextToSpeech();
+                if(!Settings.getTextToSpeechBool()) {
+                    ConvertTextToSpeech();
+                }
             }
         });
 
         // Grab all the stuff on screen
         Button startTestButton = findViewById(R.id.button_start_test_first);
-        Button returnDashboardButton = findViewById(R.id.button_return_main_test);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_patient_test);
         TextView textViewTestPageInstr1 = findViewById(R.id.textViewTestPageInstr1);
         TextView textViewTestPageInstr2 = findViewById(R.id.textViewTestPageInstr2);
         TextView textViewTestPageInstr3 = findViewById(R.id.textViewTestPageInstr3);
@@ -68,19 +75,7 @@ public class PatientTest extends AppCompatActivity {
         tts.speak(toSpeakBox4, TextToSpeech.QUEUE_ADD, null);
     }
 
-    private void openTestActivity() {
-        Intent intent = new Intent(this, Test1.class);
-        startActivity(intent);
-        // make sure to close this activity, since we aren't returning to it
-        this.finish();
-    }
 
-    private void openDashboardActivity() {
-        Intent intent = new Intent(this, Dashboard.class);
-        startActivity(intent);
-        // make sure to close this activity, since we aren't returning to it
-        this.finish();
-    }
 
     @Override
     protected void onResume() {
@@ -88,7 +83,7 @@ public class PatientTest extends AppCompatActivity {
 
         // Grab all the stuff on screen
         Button startTestButton = findViewById(R.id.button_start_test_first);
-        Button returnDashboardButton = findViewById(R.id.button_return_main_test);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_patient_test);
         TextView textViewTestPageInstr1 = findViewById(R.id.textViewTestPageInstr1);
         TextView textViewTestPageInstr2 = findViewById(R.id.textViewTestPageInstr2);
         TextView textViewTestPageInstr3 = findViewById(R.id.textViewTestPageInstr3);
@@ -103,6 +98,22 @@ public class PatientTest extends AppCompatActivity {
         // Set size of buttons
         startTestButton.setTextSize(SettingsStyle.getFontSize());
         returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+    }
+
+    private void openTestActivity() {
+        Intent intent = new Intent(this, Test1.class);
+        startActivity(intent);
+        intent.putExtra("token", token);
+        // make sure to close this activity, since we aren't returning to it
+        this.finish();
+    }
+
+    private void openDashboardActivity() {
+        Intent intent = new Intent(this, Dashboard.class);
+        intent.putExtra("token", token);
+        startActivity(intent);
+        // make sure to close this activity, since we aren't returning to it
+        this.finish();
     }
 
     @Override

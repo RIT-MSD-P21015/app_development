@@ -73,12 +73,12 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
         android:text="@string/start_test"
-        app:layout_constraintBottom_toTopOf="@+id/button_return_main_test"
+        app:layout_constraintBottom_toTopOf="@+id/button_return_main_patient_test"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button_return_main_test"
+        android:id="@+id/button_return_main_patient_test"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"

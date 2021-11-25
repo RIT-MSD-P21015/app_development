@@ -1,6 +1,8 @@
 package com.example.logintest.ui.login;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -11,6 +13,7 @@ import com.example.logintest.R;
 
 public class SettingsStyle extends AppCompatActivity {
 
+    private String token;
     private static Integer fontSize = 34;
 
     @Override
@@ -18,69 +21,56 @@ public class SettingsStyle extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_style);
 
-        TextView textViewFontSize = (TextView) findViewById(R.id.textViewFontSize);
-        TextView textViewStyle= (TextView) findViewById(R.id.textViewStyle);
+        Bundle extras = getIntent().getExtras();
+        token = extras.getString("token");
 
-        RadioGroup fontRadioGroup = (RadioGroup) findViewById(R.id.radioGroupFontSize);
-        RadioButton checkedRadioButton = (RadioButton)fontRadioGroup.findViewById(fontRadioGroup.getCheckedRadioButtonId());
+        TextView textViewFontSize = findViewById(R.id.textViewFontSize);
+        TextView textViewStyle= findViewById(R.id.textViewStyle);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_settings_style);
+
+        RadioGroup fontRadioGroup = findViewById(R.id.radioGroupFontSize);
+
+        // Set the on click listener
+        returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
 
         // This overrides the radioGroup onCheckListener
-        fontRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(RadioGroup group, int checkedId)
+        fontRadioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            // This will get the radiobutton that has changed in its check state
+            RadioButton checkedRadioButton = group.findViewById(checkedId);
+            // This puts the value (true/false) into the variable
+            boolean isChecked = checkedRadioButton.isChecked();
+            // If the radiobutton that has changed in check state is now checked...
+            if (isChecked)
             {
-                // This will get the radiobutton that has changed in its check state
-                RadioButton checkedRadioButton = (RadioButton)group.findViewById(checkedId);
-                // This puts the value (true/false) into the variable
-                boolean isChecked = checkedRadioButton.isChecked();
-                // If the radiobutton that has changed in check state is now checked...
-                if (isChecked)
-                {
-                    if (checkedRadioButton.getText().equals("Small")){
-                        fontSize = 24;
-                    }
-                    else if (checkedRadioButton.getText().equals("Normal")){
-                        fontSize = 34;
-                    }
-                    else if (checkedRadioButton.getText().equals("Large")){
-                        fontSize = 44;
-                    }
-
-                    textViewFontSize.setTextSize(fontSize);
-                    textViewStyle.setTextSize(fontSize);
+                if (checkedRadioButton.getText().equals("Small")){
+                    fontSize = 24;
                 }
+                else if (checkedRadioButton.getText().equals("Normal")){
+                    fontSize = 34;
+                }
+                else if (checkedRadioButton.getText().equals("Large")){
+                    fontSize = 44;
+                }
+
+                textViewFontSize.setTextSize(fontSize);
+                textViewStyle.setTextSize(fontSize);
             }
         });
 
         textViewFontSize.setTextSize(fontSize);
         textViewStyle.setTextSize(fontSize);
     }
-    private void changeFont() {
-
-        TextView textViewFontSize = findViewById(R.id.textViewFontSize);
-        TextView textViewStyle= findViewById(R.id.textViewStyle);
-
-        RadioButton fontSize20 = findViewById(R.id.radioButtonFontSmall);
-        RadioButton fontSize34 = findViewById(R.id.radioButtonFontNormal);
-        RadioButton fontSize48 = findViewById(R.id.radioButtonFontLarge);
-
-        if (fontSize20.isChecked()){
-            fontSize = 20;
-        }
-        else if (fontSize34.isChecked()){
-            fontSize = 34;
-        }
-        else if (fontSize48.isChecked()){
-            fontSize = 48;
-        }
-
-        textViewFontSize.setTextSize(fontSize);
-        textViewStyle.setTextSize(fontSize);
-
-    }
 
     public static Integer getFontSize() {
         return fontSize;
+    }
+
+    private void openDashboardActivity() {
+        Intent intent = new Intent(this, Dashboard.class);
+        intent.putExtra("token", token);
+        startActivity(intent);
+        // make sure to close this activity, since we aren't returning to it
+        this.finish();
     }
 
 }

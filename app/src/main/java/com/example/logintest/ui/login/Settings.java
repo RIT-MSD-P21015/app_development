@@ -75,11 +75,13 @@ public class Settings extends AppCompatActivity {
 
     private void openAboutActivity() {
         Intent intent = new Intent(this, SettingsAbout.class);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     private void openStyleActivity() {
         Intent intent = new Intent(this, SettingsStyle.class);
+        intent.putExtra("token", token);
         startActivity(intent);
     }
 

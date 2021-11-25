@@ -66,6 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
+        android:checked="true"
         android:minHeight="48dp"
         android:text="Text-to-speech"
         app:layout_constraintEnd_toEndOf="parent"
