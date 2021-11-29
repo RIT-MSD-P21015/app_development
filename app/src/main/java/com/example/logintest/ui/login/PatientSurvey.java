@@ -1,6 +1,5 @@
 package com.example.logintest.ui.login;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -114,23 +113,62 @@ public class PatientSurvey extends AppCompatActivity {
         editTextNumFalls.setTextSize(SettingsStyle.getFontSize());
 
         // Set the on click listener
-        submitSurveyButton.setOnClickListener(v -> submitData(
-                radioButtonMale.isChecked(), radioButtonFemale.isChecked(), radioButtonOther.isChecked(),
-                radioButtonRight.isChecked(), radioButtonLeft.isChecked(), radioButtonBoth.isChecked(),
-                radioButtonMedicationYes.isChecked(), radioButtonMedicationNo.isChecked(),
-                radioButtonHearingYes.isChecked(), radioButtonHearingNo.isChecked(),
-                radioButtonUrineYes.isChecked(), radioButtonUrineNo.isChecked(),
-                radioButtonParkinsonsYes.isChecked(), radioButtonParkinsonsNo.isChecked(),
-                radioButtonWalkingAidYes.isChecked(), radioButtonWalkingAidNo.isChecked(),
-                radioButtonTrapsFallYes.isChecked(), radioButtonTrapsFallNo.isChecked(),
-                Integer.parseInt(editTextAge.getText().toString()),
-                Integer.parseInt(editTextFeet.getText().toString()),
-                Integer.parseInt(editTextInches.getText().toString()),
-                Integer.parseInt(editTextWeight.getText().toString()),
-                Integer.parseInt(editTextNumFalls.getText().toString())
-        ));
+        submitSurveyButton.setOnClickListener(v -> submitSurvey());
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void submitSurvey(){
+        // Grab all the stuff on screen
+        RadioButton radioButtonMale = findViewById(R.id.radioButton_male);
+        RadioButton radioButtonFemale = findViewById(R.id.radioButton_female);
+        RadioButton radioButtonOther = findViewById(R.id.radioButton_other);
+        RadioButton radioButtonRight = findViewById(R.id.radioButton_right_body_side);
+        RadioButton radioButtonLeft = findViewById(R.id.radioButton_left_body_side);
+        RadioButton radioButtonBoth = findViewById(R.id.radioButton_both_body_side);
+        RadioButton radioButtonMedicationYes = findViewById(R.id.radioButton_t_medication);
+        RadioButton radioButtonMedicationNo = findViewById(R.id.radioButton_f_medications);
+        RadioButton radioButtonHearingYes = findViewById(R.id.radioButton_t_problems_hearing);
+        RadioButton radioButtonHearingNo = findViewById(R.id.radioButton_f_problems_hearing);
+        RadioButton radioButtonUrineYes = findViewById(R.id.radioButton_t_loose_urine);
+        RadioButton radioButtonUrineNo = findViewById(R.id.radioButton_f_loose_urine);
+        RadioButton radioButtonParkinsonsYes = findViewById(R.id.radioButton_t_suffer);
+        RadioButton radioButtonParkinsonsNo = findViewById(R.id.radioButton_f_suffer);
+        RadioButton radioButtonWalkingAidYes = findViewById(R.id.radioButton_t_walking_aid);
+        RadioButton radioButtonWalkingAidNo = findViewById(R.id.radioButton_f_walking_aid);
+        RadioButton radioButtonTrapsFallYes = findViewById(R.id.radioButton_t_traps_fall);
+        RadioButton radioButtonTrapsFallNo = findViewById(R.id.radioButton_f_traps_fall);
+        EditText editTextAge = findViewById(R.id.editTextNumber_age);
+        EditText editTextFeet = findViewById(R.id.editTextNumber_feet);
+        EditText editTextInches = findViewById(R.id.editTextNumber_inches);
+        EditText editTextWeight = findViewById(R.id.editTextNumber_weight);
+        EditText editTextNumFalls = findViewById(R.id.editTextNumberOfFalls);
+
+        try {
+            submitData(
+                    radioButtonMale.isChecked(), radioButtonFemale.isChecked(), radioButtonOther.isChecked(),
+                    radioButtonRight.isChecked(), radioButtonLeft.isChecked(), radioButtonBoth.isChecked(),
+                    radioButtonMedicationYes.isChecked(), radioButtonMedicationNo.isChecked(),
+                    radioButtonHearingYes.isChecked(), radioButtonHearingNo.isChecked(),
+                    radioButtonUrineYes.isChecked(), radioButtonUrineNo.isChecked(),
+                    radioButtonParkinsonsYes.isChecked(), radioButtonParkinsonsNo.isChecked(),
+                    radioButtonWalkingAidYes.isChecked(), radioButtonWalkingAidNo.isChecked(),
+                    radioButtonTrapsFallYes.isChecked(), radioButtonTrapsFallNo.isChecked(),
+                    Integer.parseInt(editTextAge.getText().toString()),
+                    Integer.parseInt(editTextFeet.getText().toString()),
+                    Integer.parseInt(editTextInches.getText().toString()),
+                    Integer.parseInt(editTextWeight.getText().toString()),
+                    Integer.parseInt(editTextNumFalls.getText().toString())
+            );
+        } catch (Exception e){
+            e.printStackTrace();
+            //Popup to make sure all survey data is entered
+            new AlertDialog.Builder(this)
+                    .setTitle("Survey Error")
+                    .setMessage("Please make sure no entries are left blank")
+                    .setPositiveButton("Okay", null)
+                    .show();
+        }
+    }
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private void submitData(
             boolean male, boolean female, boolean other,
@@ -217,7 +255,13 @@ public class PatientSurvey extends AppCompatActivity {
         // fire and forget submit data to database in async
         new SendData().execute("survey", surveyJson, tokenData.getToken());
 
-        openDashboardActivity();
+        //Popup that shows the server was submitted successfully
+        new AlertDialog.Builder(this)
+                .setTitle("Survey Sent")
+                .setMessage("Survey was sent successfully")
+                .setPositiveButton("Okay", (dialog, which) -> openDashboardActivity())
+                .show();
+
     }
 
     private void openDashboardActivity() {
