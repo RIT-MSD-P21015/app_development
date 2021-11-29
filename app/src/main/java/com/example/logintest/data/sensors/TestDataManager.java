@@ -2,7 +2,7 @@ package com.example.logintest.data.sensors;
 
 import java.util.ArrayList;
 
-public class TestDataManager {
+public class TestDataManager implements java.io.Serializable {
 
     private final ArrayList<TestData> accelData;
     private final ArrayList<TestData> gyroData;
@@ -20,6 +20,7 @@ public class TestDataManager {
         stepData = new ArrayList<>();
     }
 
+    // App side
     public void addAccelData(TestData d) {
         accelData.add(d);
     }
@@ -44,6 +45,7 @@ public class TestDataManager {
         stepData.add(d);
     }
 
+    // MATLAB side
     public ArrayList<TestData> getAccelData() {
         return accelData;
     }

@@ -21,7 +21,8 @@ import java.util.Base64;
 
 public class NetworkManager {
 
-    private final static String BaseURL = "http://fallriskdb-vm.main.ad.rit.edu:5000";
+    //private final static String BaseURL = "http://fallriskdb-vm.main.ad.rit.edu:5000";
+    private final static String BaseURL = "http://192.168.50.254:5000";
 
     public static String getBaseURL() {
         return BaseURL;

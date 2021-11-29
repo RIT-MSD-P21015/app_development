@@ -1,6 +1,6 @@
 package com.example.logintest.data.sensors;
 
-public class TestData {
+public class TestData implements java.io.Serializable {
 
     private final int accuracy;
     private final long timestamp;
