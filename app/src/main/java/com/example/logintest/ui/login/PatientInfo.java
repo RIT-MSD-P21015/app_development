@@ -11,15 +11,10 @@ import com.example.logintest.R;
 
 public class PatientInfo extends AppCompatActivity {
 
-    private String token;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_info);
-
-        Bundle extras = getIntent().getExtras();
-        token = extras.getString("token");
 
         // Grab all the stuff on screen
         Button startSurveyButton = findViewById(R.id.button_take_survey);
@@ -62,20 +57,17 @@ public class PatientInfo extends AppCompatActivity {
 
     private void openPatientSurveyActivity() {
         Intent intent = new Intent(this, PatientSurvey.class);
-        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     // move to the PatientTest activity page...start the tests
     private void openPatientDataActivity() {
         Intent intent = new Intent(this, PatientData.class);
-        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     private void openDashboardActivity() {
         Intent intent = new Intent(this, Dashboard.class);
-        intent.putExtra("token", token);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();

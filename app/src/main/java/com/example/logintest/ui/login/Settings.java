@@ -13,16 +13,12 @@ import com.example.logintest.R;
 
 public class Settings extends AppCompatActivity {
 
-    private String token;
     private static Boolean textToSpeech = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-
-        Bundle extras = getIntent().getExtras();
-        token = extras.getString("token");
 
         // Grab all the stuff on screen
         Button aboutButton = findViewById(R.id.button_about);
@@ -75,13 +71,11 @@ public class Settings extends AppCompatActivity {
 
     private void openAboutActivity() {
         Intent intent = new Intent(this, SettingsAbout.class);
-        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     private void openStyleActivity() {
         Intent intent = new Intent(this, SettingsStyle.class);
-        intent.putExtra("token", token);
         startActivity(intent);
     }
 
@@ -105,7 +99,6 @@ public class Settings extends AppCompatActivity {
 
     private void openDashboardActivity() {
         Intent intent = new Intent(this, Dashboard.class);
-        intent.putExtra("token", token);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();

@@ -14,6 +14,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintest.R;
+import com.example.logintest.data.AppData;
 import com.example.logintest.data.SendData;
 
 import org.json.JSONObject;
@@ -24,16 +25,11 @@ import java.util.HashMap;
 
 public class PatientSurvey extends AppCompatActivity {
 
-    private String token = null;
-
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_survey);
-
-        Bundle extras = getIntent().getExtras();
-        token = extras.getString("token");
 
         // Grab all the stuff on screen
         Button submitSurveyButton = findViewById(R.id.button_submit_survey);
@@ -149,7 +145,7 @@ public class PatientSurvey extends AppCompatActivity {
     ) {
 
         // Construct the JSON payload
-        HashMap<String, Integer> surveyFields = new HashMap<String, Integer>();
+        HashMap<String, Integer> surveyFields = new HashMap<>();
         surveyFields.put("gender", 0);
         surveyFields.put("strokeSide", 0);
         surveyFields.put("medication", 0);
@@ -216,15 +212,16 @@ public class PatientSurvey extends AppCompatActivity {
             surveyJson = Base64.getEncoder().encodeToString(authBytes);
         }
 
+        AppData tokenData = (AppData) getApplicationContext();
+
         // fire and forget submit data to database in async
-        new SendData().execute("survey", surveyJson, token);
+        new SendData().execute("survey", surveyJson, tokenData.getToken());
 
         openDashboardActivity();
     }
 
     private void openDashboardActivity() {
         Intent intent = new Intent(this, Dashboard.class);
-        intent.putExtra("token", token);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();

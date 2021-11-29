@@ -128,8 +128,6 @@ public class CreateUser extends AppCompatActivity {
     }
 
     private void openLoginActivity() {
-        // TODO how to set up login with new info?
-        // I don't know what this means @Paul
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it

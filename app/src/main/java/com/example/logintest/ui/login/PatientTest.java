@@ -14,16 +14,12 @@ import java.util.Locale;
 
 public class PatientTest extends AppCompatActivity {
 
-    private String token;
     TextToSpeech tts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_patient_test);
-
-        Bundle extras = getIntent().getExtras();
-        token = extras.getString("token");
 
         tts=new TextToSpeech(PatientTest.this, status -> {
             if(status == TextToSpeech.SUCCESS){
@@ -103,14 +99,12 @@ public class PatientTest extends AppCompatActivity {
     private void openTestActivity() {
         Intent intent = new Intent(this, Test1.class);
         startActivity(intent);
-        intent.putExtra("token", token);
         // make sure to close this activity, since we aren't returning to it
         this.finish();
     }
 
     private void openDashboardActivity() {
         Intent intent = new Intent(this, Dashboard.class);
-        intent.putExtra("token", token);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();

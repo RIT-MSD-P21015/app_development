@@ -13,16 +13,12 @@ import com.example.logintest.R;
 
 public class SettingsStyle extends AppCompatActivity {
 
-    private String token;
     private static Integer fontSize = 34;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings_style);
-
-        Bundle extras = getIntent().getExtras();
-        token = extras.getString("token");
 
         TextView textViewFontSize = findViewById(R.id.textViewFontSize);
         TextView textViewStyle= findViewById(R.id.textViewStyle);
@@ -67,7 +63,6 @@ public class SettingsStyle extends AppCompatActivity {
 
     private void openDashboardActivity() {
         Intent intent = new Intent(this, Dashboard.class);
-        intent.putExtra("token", token);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();

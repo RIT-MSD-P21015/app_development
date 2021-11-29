@@ -2,7 +2,6 @@ package com.example.logintest.data.sensors;
 
 import java.util.ArrayList;
 
-// TODO implements serializable?
 public class TestDataManager {
 
     private final ArrayList<TestData> accelData;

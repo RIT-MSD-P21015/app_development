@@ -11,12 +11,13 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintest.R;
+import com.example.logintest.data.AppData;
+import com.example.logintest.data.SendData;
 import com.example.logintest.data.sensors.DataCollector;
 import com.example.logintest.data.sensors.TestDataManager;
 
 public class Test3 extends AppCompatActivity {
 
-    // TODO serialize the data manager
     private TestDataManager tdm;
     private DataCollector dataCollector;
 
@@ -69,7 +70,13 @@ public class Test3 extends AppCompatActivity {
         // end data collection for first test
         dataCollector.stop();
 
-        // TODO send data to server
+        // add test data to global AppData
+        AppData testData = (AppData) getApplicationContext();
+        testData.updateTdm(3, dataCollector.getTdm());
+
+        // fire and forget submit data to database in async
+        String base64TestData = testData.getBase64TestData();
+        new SendData().execute("tests", base64TestData, testData.getToken());
 
         String ThirdTestEnd = "Third Test ENDED";
         Toast.makeText(getApplicationContext(), ThirdTestEnd, Toast.LENGTH_LONG).show();

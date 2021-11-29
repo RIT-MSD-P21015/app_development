@@ -20,13 +20,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.logintest.R;
+import com.example.logintest.data.AppData;
 
 import java.io.IOException;
 
 public class LoginActivity extends AppCompatActivity {
 
     private LoginViewModel loginViewModel;
-
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -118,7 +118,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + " " + model.getDisplayName();
-        // TODO : initiate successful logged in experience
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();
 
         try {
@@ -135,14 +134,14 @@ public class LoginActivity extends AppCompatActivity {
     // this function is called when the forgot password button is pressed
     public void openActivityForgotPassword() {
         Intent intent = new Intent(this, ResetPassword.class);
-        intent.putExtra("token", loginViewModel.getToken());
         startActivity(intent);
     }
 
     // this function opens the Dashboard activity
     public void openActivityDashboard() throws IOException {
         Intent intent = new Intent(this, Dashboard.class);
-        intent.putExtra("token", loginViewModel.getToken());
+        AppData tokenData = (AppData) getApplicationContext();
+        tokenData.setToken(loginViewModel.getToken());
         startActivity(intent);
         this.finish();
     }

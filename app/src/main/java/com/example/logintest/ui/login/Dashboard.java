@@ -8,18 +8,14 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintest.R;
+import com.example.logintest.data.AppData;
 
 public class Dashboard extends AppCompatActivity {
-
-    private String token = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
-        Bundle extras = getIntent().getExtras();
-        token = extras.getString("token");
 
         // Grab all the stuff on screen
         Button patientButton = findViewById(R.id.button_patient_info);
@@ -78,32 +74,32 @@ public class Dashboard extends AppCompatActivity {
 
     public void openActivityPatientInfo() {
         Intent intent = new Intent(this, PatientInfo.class);
-        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     public void openActivityPhysicalTest() {
         Intent intent = new Intent(this, PhysicalTest.class);
-        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     public void openActivityResults() {
         Intent intent = new Intent(this, Results.class);
-        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     public void openActivitySettings() {
         Intent intent = new Intent(this, Settings.class);
-        intent.putExtra("token", token);
         startActivity(intent);
     }
 
     public void logout() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
-        // TODO add token revoke
+
+        // revoke authentication token
+        AppData tokenData = (AppData) getApplicationContext();
+        tokenData.clearToken();
+
         this.finish();
     }
 

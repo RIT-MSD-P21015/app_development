@@ -12,15 +12,10 @@ import com.example.logintest.R;
 
 public class Results extends AppCompatActivity {
 
-    private String token;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results);
-
-        Bundle extras = getIntent().getExtras();
-        token = extras.getString("token");
 
         // Grab all the stuff on screen
         final ProgressBar progressBar = (ProgressBar) findViewById(R.id.progressBar_results);
@@ -38,7 +33,6 @@ public class Results extends AppCompatActivity {
 
     private void openDashboardActivity() {
         Intent intent = new Intent(this, Dashboard.class);
-        intent.putExtra("token", token);
         startActivity(intent);
         // make sure to close this activity, since we aren't returning to it
         this.finish();
