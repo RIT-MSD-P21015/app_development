@@ -24,7 +24,7 @@ public class PatientTest extends AppCompatActivity {
         tts=new TextToSpeech(PatientTest.this, status -> {
             if(status == TextToSpeech.SUCCESS){
                 tts.setLanguage(Locale.US);
-                if(!Settings.getTextToSpeechBool()) {
+                if(Settings.getTextToSpeechBool()) {
                     ConvertTextToSpeech();
                 }
             }

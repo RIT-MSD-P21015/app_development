@@ -50,6 +50,9 @@ public class Test1 extends AppCompatActivity {
 //        endTest.setTextSize(SettingsStyle.getFontSize());
 //        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
 
+        // Disable end test button until start test has been pressed
+        endTest.setEnabled(false);
+
         // Set the on click listener
         startTest.setOnClickListener(v -> collectFirstTest());
         endTest.setOnClickListener(v -> endCollectFirstTest());
@@ -62,11 +65,18 @@ public class Test1 extends AppCompatActivity {
 
 
     private void collectFirstTest() {
+        Button startTest = findViewById(R.id.button_start_test1);
+        Button endTest = findViewById(R.id.button_end_test1);
+
         // start data collection for first test...start logging data
         dataCollector.start();
 
         String FirstTestStart = getString(R.string.first_test_start);
         Toast.makeText(getApplicationContext(), FirstTestStart, Toast.LENGTH_LONG).show();
+
+        // disable start test and enable end test
+        startTest.setEnabled(false);
+        endTest.setEnabled(true);
     }
 
     private void endCollectFirstTest() {
@@ -90,7 +100,10 @@ public class Test1 extends AppCompatActivity {
         testData.updateTdm(1, dataCollector.getTdm());
 
         // fire and forget submit data to database in async
-        String base64TestData = testData.getBase64TestData();
+        String base64TestData = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            base64TestData = testData.getBase64TestData();
+        }
         new SendData().execute("tests", base64TestData, testData.getToken());
 
         String FirstTestEnd = "First Test ENDED";

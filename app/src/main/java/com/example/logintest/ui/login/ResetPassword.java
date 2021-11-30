@@ -1,8 +1,5 @@
 package com.example.logintest.ui.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,6 +7,8 @@ import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintest.R;
 import com.example.logintest.data.NetworkManager;
@@ -42,32 +41,27 @@ public class ResetPassword extends AppCompatActivity {
     }
 
     private void resetPassword(String email) {
-        AlertDialog alertDialog = new AlertDialog.Builder(this).create();
-        if (!(!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches())){
-
-            String body = "{ \"email\" : \"" + email + "\" }";
-            // check response for existing email or success
+        if ((!TextUtils.isEmpty(email) && Patterns.EMAIL_ADDRESS.matcher(email).matches())){
+            // check response for success
             int serverResponseCode = 0;
             try {
-                serverResponseCode = NetworkManager.sendReset("/api/user", body);
+                serverResponseCode = NetworkManager.sendReset("/api/reset_password_request", email);
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
             // on success, move to openDashboardActivity
             if (serverResponseCode == 200) {
-                alertDialog.setTitle("");
-                alertDialog.setMessage("Account Created Successfully");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        (dialog, which) -> dialog.dismiss());
-                alertDialog.show();
-                openLoginActivity();
+                new androidx.appcompat.app.AlertDialog.Builder(this)
+                        .setTitle("Password Reset")
+                        .setMessage("Your password was reset successfully")
+                        .setPositiveButton("Okay", (dialog, which) -> this.finish())
+                        .show();
             } else {
-                alertDialog.setTitle("Alert");
-                alertDialog.setMessage("Error with ");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        (dialog, which) -> dialog.dismiss());
-                alertDialog.show();
+                new androidx.appcompat.app.AlertDialog.Builder(this)
+                        .setTitle("Password Reset Error")
+                        .setMessage("Server unable to reset password")
+                        .setPositiveButton("Okay", (dialog, which) -> this.finish())
+                        .show();
             }
 
         }
@@ -81,4 +75,5 @@ public class ResetPassword extends AppCompatActivity {
         // make sure to close this activity, since we aren't returning to it
         this.finish();
     }
+
 }

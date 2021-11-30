@@ -116,6 +116,11 @@ public class LoginActivity extends AppCompatActivity {
         buttonForgotPassword.setOnClickListener(v -> openActivityForgotPassword());
     }
 
+    @Override
+    public void onBackPressed() {
+        // do nothing
+    }
+
     private void updateUiWithUser(LoggedInUserView model) {
         String welcome = getString(R.string.welcome) + " " + model.getDisplayName();
         Toast.makeText(getApplicationContext(), welcome, Toast.LENGTH_LONG).show();

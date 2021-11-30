@@ -95,12 +95,11 @@ public class Dashboard extends AppCompatActivity {
     public void logout() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        this.finish();
 
         // revoke authentication token
         AppData tokenData = (AppData) getApplicationContext();
         tokenData.clearToken();
-
-        this.finish();
     }
 
 

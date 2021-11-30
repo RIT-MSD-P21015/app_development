@@ -10,6 +10,10 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintest.R;
+import com.example.logintest.data.AppData;
+import com.example.logintest.data.NetworkManager;
+
+import java.io.IOException;
 
 public class Settings extends AppCompatActivity {
 
@@ -29,7 +33,7 @@ public class Settings extends AppCompatActivity {
         Switch textToSpeechSwitch = findViewById(R.id.textToSpeechSwitch);
 
         // Get value of textToSpeech Switch
-        textToSpeech = textToSpeechSwitch.isChecked();
+        textToSpeechSwitch.setChecked(textToSpeech);
 
         // Set size of textViews
         textViewSettings.setTextSize(SettingsStyle.getFontSize());
@@ -44,8 +48,10 @@ public class Settings extends AppCompatActivity {
         // Set the on click listener
         aboutButton.setOnClickListener(v -> openAboutActivity());
         styleButton.setOnClickListener(v -> openStyleActivity());
-        clearDataButton.setOnClickListener(v -> confirmClear());
+        clearDataButton.setOnClickListener(v -> confirmDelete());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+
+        textToSpeechSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> textToSpeech = isChecked);
     }
 
     @Override
@@ -79,23 +85,41 @@ public class Settings extends AppCompatActivity {
         startActivity(intent);
     }
 
-    private void confirmClear() {
+    private void confirmDelete() {
 
         // TODO: Clear patient data...reset app to default
         // TODO: Fix the pop-up button
         new AlertDialog.Builder(this)
-                .setTitle("Clear Patient Info")
+                .setTitle("Delete User Account")
                 .setMessage("Are you sure you want to clear all patient info?")
-                .setPositiveButton("Yes", (dialog, which) -> finish())
+                .setPositiveButton("Yes", (dialog, which) -> deleteUser())
                 .setNegativeButton("No", null)
                 .show();
-
-//        Intent intent = new Intent(this, Dashboard.class);
-//        startActivity(intent);
-//        finish();
     }
 
-
+    private void deleteUser() {
+        AppData tokenData = (AppData) getApplicationContext();
+        int serverResponseCode = 0;
+        try {
+            serverResponseCode = NetworkManager.userDelete("/api/user", tokenData.getToken());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // on success, move to openDashboardActivity
+        if (serverResponseCode == 204) {
+            new androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setTitle("User Delete")
+                    .setMessage("User account was deleted successfully")
+                    .setPositiveButton("Okay", (dialog, which) -> openLoginActivity())
+                    .show();
+        } else {
+            new androidx.appcompat.app.AlertDialog.Builder(this)
+                    .setTitle("User Delete")
+                    .setMessage("User account deletion failed")
+                    .setPositiveButton("Okay", null)
+                    .show();
+        }
+    }
 
     private void openDashboardActivity() {
         Intent intent = new Intent(this, Dashboard.class);
@@ -106,5 +130,14 @@ public class Settings extends AppCompatActivity {
 
     public static Boolean getTextToSpeechBool() {
         return textToSpeech;
+    }
+
+    private void openLoginActivity() {
+        // TODO how to set up login with new info?
+        // I don't know what this means @Paul
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        // make sure to close this activity, since we aren't returning to it
+        this.finish();
     }
 }

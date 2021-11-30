@@ -18,7 +18,6 @@ import com.example.logintest.data.sensors.TestDataManager;
 
 public class Test2 extends AppCompatActivity {
 
-    private TestDataManager tdm;
     private DataCollector dataCollector;
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
@@ -51,21 +50,31 @@ public class Test2 extends AppCompatActivity {
 //        endTest.setTextSize(SettingsStyle.getFontSize());
 //        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
 
+        // Disable end test button until start test has been pressed
+        endTest.setEnabled(false);
+
         // Set the on click listener
         startTest.setOnClickListener(v -> collectSecondTest());
         endTest.setOnClickListener(v -> endCollectSecondTest());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
 
-        tdm = new TestDataManager();
+        TestDataManager tdm = new TestDataManager();
         dataCollector = new DataCollector(this, tdm);
     }
 
     private void collectSecondTest() {
+        Button startTest = findViewById(R.id.button_start_test2);
+        Button endTest = findViewById(R.id.button_end_test2);
+
         // start data collection for first test...start logging data
         dataCollector.start();
 
         String SecondTestStart = "Second Test Dat Collection Started";
         Toast.makeText(getApplicationContext(), SecondTestStart, Toast.LENGTH_LONG).show();
+
+        // disable start test and enable end test
+        startTest.setEnabled(false);
+        endTest.setEnabled(true);
     }
 
     private void endCollectSecondTest() {
@@ -77,7 +86,10 @@ public class Test2 extends AppCompatActivity {
         testData.updateTdm(2, dataCollector.getTdm());
 
         // fire and forget submit data to database in async
-        String base64TestData = testData.getBase64TestData();
+        String base64TestData = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            base64TestData = testData.getBase64TestData();
+        }
         new SendData().execute("tests", base64TestData, testData.getToken());
 
         String SecondTestEnd = "Second Test ENDED";

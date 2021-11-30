@@ -63,29 +63,40 @@ public class NetworkManager {
         return sb.toString();
     }
 
-    public static int sendReset(String location, String body) throws IOException {
-        URL url = new URL(BaseURL.concat(location));
-        HttpURLConnection con = (HttpURLConnection) url.openConnection();
-        con.setRequestMethod("POST");
-        con.setRequestProperty("Content-Type", "application/json; utf-8");
-        con.setRequestProperty("Accept", "application/json");
-        con.setDoOutput(true);
-        try(OutputStream os = con.getOutputStream()) {
-            byte[] input = body.getBytes("utf-8");
-            os.write(input, 0, input.length);
-        }
-        try(BufferedReader br = new BufferedReader(
-                new InputStreamReader(con.getInputStream(), "utf-8"))) {
-            StringBuilder response = new StringBuilder();
-            String responseLine = null;
-            while ((responseLine = br.readLine()) != null) {
-                response.append(responseLine.trim());
-            }
-            Log.d("sendPost",response.toString());
+    public static int sendReset(String location, String email) throws IOException {
 
+        URL url = new URL(BaseURL.concat(location+"/"+email));
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        urlConnection.setRequestMethod("GET");
+        urlConnection.setRequestProperty("Content-Type", "application/json; utf-8");
+
+        if(urlConnection.getResponseCode() == 200) {
+            return 200;
         }
-        // TODO better error handling?
-        return con.getResponseCode();
+        else {
+            return 0;
+        }
+    }
+
+    public static int userDelete(String location, String token) throws IOException {
+
+        URL url = new URL(BaseURL.concat(location));
+        HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
+        urlConnection.setRequestMethod("DELETE");
+
+        if(!token.isEmpty()) {
+            String authHeaderValue = "Bearer " + token;
+            urlConnection.setRequestProperty("Authorization", authHeaderValue);
+        }
+
+        urlConnection.setRequestProperty("Content-Type", "application/json; utf-8");
+
+        if(urlConnection.getResponseCode() == 204) {
+            return 204;
+        }
+        else {
+            return 0;
+        }
     }
 
 
