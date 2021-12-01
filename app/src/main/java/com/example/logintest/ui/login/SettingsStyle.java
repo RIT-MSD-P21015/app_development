@@ -71,14 +71,14 @@ public class SettingsStyle extends AppCompatActivity {
 
         primaryColorButton.setOnClickListener(
                 v -> new ColorPickerPopup.Builder(SettingsStyle.this).initialColor(
-                        Color.RED) // set initial color
+                        getPrimaryColor()) // set initial color
                         // of the color
                         // picker dialog
                         .enableBrightness(
-                                true) // enable color brightness
+                                false) // enable color brightness
                         // slider or not
                         .enableAlpha(
-                                true) // enable color alpha
+                                false) // enable color alpha
                         // changer on slider or
                         // not
                         .okTitle(
@@ -95,7 +95,7 @@ public class SettingsStyle extends AppCompatActivity {
                         // bottom of the cancel
                         // button
                         .showValue(
-                                true) // this is the value which
+                                false) // this is the value which
                         // shows the selected
                         // color hex code
                         // the above all values can be made
@@ -124,14 +124,14 @@ public class SettingsStyle extends AppCompatActivity {
                                 }));
         secondaryColorButton.setOnClickListener(
                 v -> new ColorPickerPopup.Builder(SettingsStyle.this).initialColor(
-                        Color.RED) // set initial color
+                        getSecondaryColor()) // set initial color
                         // of the color
                         // picker dialog
                         .enableBrightness(
-                                true) // enable color brightness
+                                false) // enable color brightness
                         // slider or not
                         .enableAlpha(
-                                true) // enable color alpha
+                                false) // enable color alpha
                         // changer on slider or
                         // not
                         .okTitle(
@@ -148,7 +148,7 @@ public class SettingsStyle extends AppCompatActivity {
                         // bottom of the cancel
                         // button
                         .showValue(
-                                true) // this is the value which
+                                false) // this is the value which
                         // shows the selected
                         // color hex code
                         // the above all values can be made
