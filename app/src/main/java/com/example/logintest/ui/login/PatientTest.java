@@ -110,6 +110,7 @@ public class PatientTest extends AppCompatActivity {
         this.finish();
     }
 
+    // Make sure text to speech stops when this activity is paused
     @Override
     protected void onPause() {
         super.onPause();
