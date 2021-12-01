@@ -30,6 +30,9 @@ public class PatientData extends AppCompatActivity {
 
         // Set the on click listener
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+
+        // Set color of button backgrounds
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
     }
 
     @Override

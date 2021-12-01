@@ -31,6 +31,10 @@ public class PhysicalTest extends AppCompatActivity {
         // Set the on click listener
         startTestButton.setOnClickListener(v -> openTestActivity());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+
+        // Set color of button backgrounds
+        startTestButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
     }
 
     @Override

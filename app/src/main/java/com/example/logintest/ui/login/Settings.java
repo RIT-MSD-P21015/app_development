@@ -51,6 +51,12 @@ public class Settings extends AppCompatActivity {
         clearDataButton.setOnClickListener(v -> confirmDelete());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
 
+        // Set color of button backgrounds
+        aboutButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        styleButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
+        clearDataButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
+
         textToSpeechSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> textToSpeech = isChecked);
     }
 

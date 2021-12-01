@@ -112,6 +112,9 @@ public class PatientSurvey extends AppCompatActivity {
         editTextWeight.setTextSize(SettingsStyle.getFontSize());
         editTextNumFalls.setTextSize(SettingsStyle.getFontSize());
 
+        // Set color of button backgrounds
+        submitSurveyButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+
         // Set the on click listener
         submitSurveyButton.setOnClickListener(v -> submitSurvey());
     }

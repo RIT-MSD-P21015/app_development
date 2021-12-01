@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.SettingsStyle">
 
+    <View
+        android:id="@+id/viewSecondaryColor"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="#673AB7"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSecondaryColor"
+        app:layout_constraintTop_toTopOf="@+id/buttonSecondaryColor" />
+
     <TextView
         android:id="@+id/textViewStyle"
         android:layout_width="wrap_content"
@@ -69,5 +79,34 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroupFontSize" />
+
+    <View
+        android:id="@+id/viewPrimaryColor"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="#4CAF50"
+        app:layout_constraintEnd_toEndOf="@+id/viewSecondaryColor"
+        app:layout_constraintTop_toTopOf="@+id/buttonPrimaryColor" />
+
+    <Button
+        android:id="@+id/buttonPrimaryColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Choose Primary Color"
+        app:layout_constraintEnd_toEndOf="@+id/buttonSecondaryColor"
+        app:layout_constraintStart_toStartOf="@+id/buttonSecondaryColor"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroupFontSize" />
+
+    <Button
+        android:id="@+id/buttonSecondaryColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:text="Choose Secondary Color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPrimaryColor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

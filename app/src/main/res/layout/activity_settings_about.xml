@@ -14,6 +14,7 @@
         android:layout_marginLeft="70dp"
         android:layout_marginTop="104dp"
         android:text="@string/app_version"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,7 +25,8 @@
         android:layout_marginStart="60dp"
         android:layout_marginLeft="60dp"
         android:layout_marginTop="104dp"
-        android:text="@string/todo"
+        android:text="1.0"
+        android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/textView25"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -36,19 +38,9 @@
         android:layout_marginLeft="70dp"
         android:layout_marginTop="76dp"
         android:text="@string/developers"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView25" />
-
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginLeft="64dp"
-        android:layout_marginTop="77dp"
-        android:text="@string/todo"
-        app:layout_constraintStart_toEndOf="@+id/textView27"
-        app:layout_constraintTop_toBottomOf="@+id/textView26" />
 
     <Button
         android:id="@+id/button_return_main_settings_about"
@@ -60,4 +52,38 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:inputType="textPersonName|textEmailAddress"
+        android:text="Jacob DeFord: jwd5062@rit.edu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView27" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:inputType="textPersonName|textEmailAddress"
+        android:text="Matt Krol: mrk7339@rit.edu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName2" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:inputType="textPersonName"
+        android:text="Paul Kelly: pjk2563@rit.edu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,6 +18,8 @@ public class SettingsAbout extends AppCompatActivity {
         Button returnDashboardButton = findViewById(R.id.button_return_main_settings_about);
 
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
     }
 
     private void openDashboardActivity() {

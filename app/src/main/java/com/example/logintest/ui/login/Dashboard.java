@@ -42,6 +42,12 @@ public class Dashboard extends AppCompatActivity {
         settingsButton.setOnClickListener(v -> openActivitySettings());
         logoutButton.setOnClickListener(v -> logout());
 
+        // Set color of button backgrounds
+        patientButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        physicalTestButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
+        resultButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        settingsButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
+        logoutButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
     }
 
     @Override

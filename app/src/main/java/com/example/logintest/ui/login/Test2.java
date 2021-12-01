@@ -50,6 +50,11 @@ public class Test2 extends AppCompatActivity {
 //        endTest.setTextSize(SettingsStyle.getFontSize());
 //        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
 
+        // Set color of button backgrounds
+        startTest.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        endTest.setBackgroundColor(SettingsStyle.getSecondaryColor());
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+
         // Disable end test button until start test has been pressed
         endTest.setEnabled(false);
 

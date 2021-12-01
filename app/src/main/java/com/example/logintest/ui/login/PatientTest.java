@@ -52,6 +52,10 @@ public class PatientTest extends AppCompatActivity {
         startTestButton.setOnClickListener(v -> openTestActivity());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
 
+        // Set color of button backgrounds
+        startTestButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
+
     }
 
     private void ConvertTextToSpeech() {
@@ -94,6 +98,10 @@ public class PatientTest extends AppCompatActivity {
         // Set size of buttons
         startTestButton.setTextSize(SettingsStyle.getFontSize());
         returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+
+        // Set color of button backgrounds
+        startTestButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
     }
 
     private void openTestActivity() {

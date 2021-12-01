@@ -29,6 +29,10 @@ public class Results extends AppCompatActivity {
         // Set the on click listener
         seeResultsButton.setOnClickListener(v -> progressBar.setVisibility(View.VISIBLE));
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+
+        // Set color of button backgrounds
+        seeResultsButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
     }
 
     private void openDashboardActivity() {
