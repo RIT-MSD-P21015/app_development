@@ -31,17 +31,15 @@ public class FallRiskResults extends AppCompatActivity {
         String resultString = (int) (Results.getResultDouble()*100) + "%";
         ResultTextView.setText(resultString);
 
-
-
         TimeZone tz = TimeZone.getDefault();
         TimeZone UTC = TimeZone.getTimeZone("UTC");
         ZoneId zoneID = UTC.toZoneId();
         ZonedDateTime zonedResult= Results.getTimestampResult().atZone(zoneID);
 
-        ZonedDateTime zdt = Results.getTimestampResult().atZone(tz.toZoneId());
+        ZonedDateTime zdt = zonedResult.withZoneSameInstant(tz.toZoneId());
 
 
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm").withZone(tz.toZoneId());
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("HH:mm yyyy-MM-dd").withZone(tz.toZoneId());
 
         String test = zdt.format(formatter);
 
