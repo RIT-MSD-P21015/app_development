@@ -44,9 +44,9 @@ public class Test4 extends AppCompatActivity {
         textViewTest4Instr4.setTextSize(SettingsStyle.getFontSize());
 
         // Set size of buttons
-//        startTest.setTextSize(SettingsStyle.getFontSize());
-//        endTest.setTextSize(SettingsStyle.getFontSize());
-//        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+        startTest.setTextSize(SettingsStyle.getFontSize());
+        endTest.setTextSize(SettingsStyle.getFontSize());
+        returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
 
         // Set color of button backgrounds
         startTest.setBackgroundColor(SettingsStyle.getPrimaryColor());

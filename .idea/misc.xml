@@ -7,6 +7,8 @@
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/drawable/ic_launcher_background.xml" value="0.28783783783783784" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_create_user.xml" value="0.13901791639017916" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_dashboard.xml" value="0.22" />
+        <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_fall_risk_result.xml" value="0.15471311475409835" />
+        <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_fall_risk_results.xml" value="0.25" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_first_test.xml" value="0.2695035460992908" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_patient_data.xml" value="0.28783783783783784" />
@@ -15,7 +17,7 @@
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_patient_test.xml" value="0.2773648648648649" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_physical_test.xml" value="0.2695035460992908" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_reset_password.xml" value="0.17650962176509621" />
-        <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_results.xml" value="0.2695035460992908" />
+        <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_results.xml" value="0.22" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_second_test.xml" value="0.2695035460992908" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_settings.xml" value="0.22" />
         <entry key="..\:/Users/jdefo/Documents/GitHub/MSD/app_development/app/src/main/res/layout/activity_settings_about.xml" value="0.33" />
