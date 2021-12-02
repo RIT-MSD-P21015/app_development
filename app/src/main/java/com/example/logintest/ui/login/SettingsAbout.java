@@ -1,10 +1,10 @@
 package com.example.logintest.ui.login;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintest.R;
 
@@ -18,6 +18,8 @@ public class SettingsAbout extends AppCompatActivity {
         Button returnDashboardButton = findViewById(R.id.button_return_main_settings_about);
 
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
     }
 
     private void openDashboardActivity() {

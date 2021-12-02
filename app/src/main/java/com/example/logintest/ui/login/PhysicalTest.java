@@ -17,8 +17,8 @@ public class PhysicalTest extends AppCompatActivity {
         setContentView(R.layout.activity_physical_test);
 
         // Grab all the stuff on screen
-        Button startTestButton = (Button) findViewById(R.id.button_start_test);
-        Button returnDashboardButton = (Button) findViewById(R.id.button_return_main_physical_test_page);
+        Button startTestButton = findViewById(R.id.button_start_test);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_physical_test_page);
         TextView textViewPhysicalTest = findViewById(R.id.textViewPhysicalTest);
 
         // Set size of textViews
@@ -31,6 +31,10 @@ public class PhysicalTest extends AppCompatActivity {
         // Set the on click listener
         startTestButton.setOnClickListener(v -> openTestActivity());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+
+        // Set color of button backgrounds
+        startTestButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
     }
 
     @Override
@@ -38,8 +42,8 @@ public class PhysicalTest extends AppCompatActivity {
         super.onResume();
 
         // Grab all the stuff on screen
-        Button startTestButton = (Button) findViewById(R.id.button_start_test);
-        Button returnDashboardButton = (Button) findViewById(R.id.button_return_main_physical_test_page);
+        Button startTestButton = findViewById(R.id.button_start_test);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_physical_test_page);
         TextView textViewPhysicalTest = findViewById(R.id.textViewPhysicalTest);
 
         // Set size of textViews

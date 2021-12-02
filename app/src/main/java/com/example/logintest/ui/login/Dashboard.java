@@ -2,15 +2,13 @@ package com.example.logintest.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.speech.tts.TextToSpeech;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.logintest.R;
-
-import java.util.Locale;
+import com.example.logintest.data.AppData;
 
 public class Dashboard extends AppCompatActivity {
 
@@ -18,7 +16,6 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-
 
         // Grab all the stuff on screen
         Button patientButton = findViewById(R.id.button_patient_info);
@@ -45,6 +42,12 @@ public class Dashboard extends AppCompatActivity {
         settingsButton.setOnClickListener(v -> openActivitySettings());
         logoutButton.setOnClickListener(v -> logout());
 
+        // Set color of button backgrounds
+        patientButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        physicalTestButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
+        resultButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        settingsButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
+        logoutButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
     }
 
     @Override
@@ -98,6 +101,11 @@ public class Dashboard extends AppCompatActivity {
     public void logout() {
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
+        this.finish();
+
+        // revoke authentication token
+        AppData tokenData = (AppData) getApplicationContext();
+        tokenData.clearToken();
     }
 
 

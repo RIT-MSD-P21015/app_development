@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.PatientSurvey">
 
+
     <ScrollView
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -16,8 +17,9 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
         android:scrollbarStyle="insideInset"
-        app:layout_constraintBottom_toTopOf="@+id/button_submit_survey"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6">
 
@@ -31,6 +33,7 @@
                 android:id="@+id/textViewSelectGender"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/please_select_your_gender"
                 android:textSize="18sp" />
 
@@ -63,6 +66,7 @@
                 android:id="@+id/textViewInsertAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/please_insert_your_age"
                 android:textSize="18sp" />
 
@@ -70,8 +74,8 @@
                 android:id="@+id/editTextNumber_age"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:gravity="center"
                 android:ems="10"
+                android:gravity="center"
                 android:hint="@string/age"
                 android:inputType="number"
                 android:textSize="24sp" />
@@ -80,6 +84,7 @@
                 android:id="@+id/textViewInsertHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/please_insert_your_height"
                 android:textSize="18sp" />
 
@@ -109,6 +114,7 @@
                 android:id="@+id/textViewInsertWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/please_insert_your_weight"
                 android:textSize="18sp" />
 
@@ -117,15 +123,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="@string/weight"
                 android:gravity="center"
+                android:hint="@string/weight"
                 android:inputType="number"
                 android:textSize="24sp" />
 
             <TextView
-                android:id="@+id/textViewAffectedSide"
+                android:id="@+id/textViewDataBodySide"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/please_select_affected_body_side"
                 android:textSize="18sp" />
 
@@ -162,6 +169,7 @@
                 android:id="@+id/textViewExperienceFall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/have_you_experienced_a_fall_after_a_stroke_if_yes_how_many_times_have_you_fallen_in_the_last_6_months"
                 android:textSize="18sp" />
 
@@ -177,6 +185,7 @@
                 android:id="@+id/textViewMedication"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/do_you_take_medication_for_sleep_cardiac_problems_diuretics_or_sedative"
                 android:textSize="18sp" />
 
@@ -207,6 +216,7 @@
                 android:id="@+id/textViewProblemsHearing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/do_you_have_problems_with_hearing_or_vision"
                 android:textSize="18sp" />
 
@@ -235,6 +245,7 @@
                 android:id="@+id/textViewLooseUrine"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/do_you_have_loose_urine_or_pass_stool_involuntarily"
                 android:textSize="18sp" />
 
@@ -263,6 +274,7 @@
                 android:id="@+id/textViewSufferParkinsons"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/do_you_suffer_from_parkinson_s_arthritis_or_rheumatism"
                 android:textSize="18sp" />
 
@@ -291,6 +303,7 @@
                 android:id="@+id/textViewWalkingAid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/do_you_use_a_walking_aid_on_a_regular_basis"
                 android:textSize="18sp" />
 
@@ -319,6 +332,7 @@
                 android:id="@+id/textViewTrapsHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:gravity="center"
                 android:text="@string/are_there_many_traps_that_might_cause_a_fall_at_home"
                 android:textSize="18sp" />
 
@@ -341,11 +355,17 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="@string/no" />
+
             </RadioGroup>
+
+            <Button
+                android:id="@+id/button_submit_survey"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/submit_survey" />
 
         </LinearLayout>
     </ScrollView>
-
 
     <TextView
         android:id="@+id/textView6"
@@ -358,15 +378,5 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_submit_survey"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/submit_survey"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

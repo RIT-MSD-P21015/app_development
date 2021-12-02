@@ -1,6 +1,12 @@
 package com.example.logintest.data;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.example.logintest.data.model.LoggedInUser;
+
+import org.json.JSONObject;
 
 import java.io.IOException;
 
@@ -9,19 +15,20 @@ import java.io.IOException;
  */
 public class LoginDataSource {
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Result<LoggedInUser> login(String username, String password) {
 
         try {
+            // POST email and password to /api/token
+            String token = NetworkManager.getToken(username, password);
 
-            // TODO POST email and password to /api/token
-
-            // TODO check if token received
-            String token = null;
-
-            if (token.equals(null)) {
-                // TODO get first and last name from /api/user
-                String firstName = "John";
-                String lastName = "Doe";
+            // check if token received
+            if (!token.isEmpty()) {
+                // get first and last name from /api/user
+                String json = NetworkManager.sendGET("/api/user", token);
+                JSONObject jsonObject = new JSONObject(json);
+                String firstName = jsonObject.getString("firstname");
+                String lastName = jsonObject.getString("lastname");;
 
                 String displayName = firstName + " " + lastName;
                 LoggedInUser currentUser = new LoggedInUser(token, displayName);
@@ -32,26 +39,6 @@ public class LoginDataSource {
             }
         } catch (Exception e) {
             return new Result.Error(new IOException("Error logging in", e));
-        }
-    }
-
-    public Result<LoggedInUser> createUser(String firstName, String lastName, String username, String password) {
-        try {
-
-            // TODO POST info to /api/user
-
-            // TODO check if success code returned
-            int resultCode = 0;
-            int good = 0;
-
-            if (resultCode == good) {
-                return new Result.Success<>(true);
-            }
-            else{
-                return new Result.Failure<>("Failed to create user"); // TODO send server error?
-            }
-        } catch (Exception e) {
-            return new Result.Error(new IOException("Error creating user", e));
         }
     }
 

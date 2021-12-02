@@ -1,5 +1,9 @@
 package com.example.logintest.data;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.example.logintest.data.model.LoggedInUser;
 
 /**
@@ -43,33 +47,13 @@ public class LoginRepository {
         // @see https://developer.android.com/training/articles/keystore
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public Result<LoggedInUser> login(String username, String password) {
         // handle login
         Result<LoggedInUser> result = dataSource.login(username, password);
         if (result instanceof Result.Success) {
             setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
         }
-        return result;
-    }
-
-    /**
-     * Create a new user on the database and logs in
-     *
-     * returns result: failure to create user, failure to login, or successful login
-     */
-    public Result<LoggedInUser> createUser(String firstName, String lastName, String username, String password) {
-        Result<LoggedInUser> result = dataSource.createUser(firstName, lastName, username, password);
-        // was the user created successfully?
-        if (result instanceof Result.Success) {
-            // login the user
-            result = dataSource.login(username, password);
-
-            // was the user logged in?
-            if (result instanceof Result.Success) {
-                setLoggedInUser(((Result.Success<LoggedInUser>) result).getData());
-            }
-        }
-
         return result;
     }
 }

@@ -112,11 +112,17 @@ public class DataCollector implements SensorEventListener {
         }
 
         // DEBUG log to console to show sensors are collecting data
+        /*
         String msg = sensor_type + " logged: "
                 + " accuracy: " + data.getAccuracy()
                 + ", timestamp: " + data.getTimestamp()
                 + ", values: " + Arrays.toString(data.getValues());
         Log.v("SENSORS", msg);
+         */
+    }
+
+    public TestDataManager getTdm() {
+        return tdm;
     }
 
     @Override

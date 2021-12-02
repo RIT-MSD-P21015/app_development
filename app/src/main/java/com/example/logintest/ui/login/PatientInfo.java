@@ -34,6 +34,12 @@ public class PatientInfo extends AppCompatActivity {
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
         startSurveyButton.setOnClickListener(v -> openPatientSurveyActivity());
         seePatientDataButton.setOnClickListener(v -> openPatientDataActivity());
+
+        // Set color of button backgrounds
+        startSurveyButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        seePatientDataButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+
     }
 
     @Override

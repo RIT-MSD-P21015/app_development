@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +13,7 @@ import com.example.logintest.R;
 import java.util.Locale;
 
 public class PatientTest extends AppCompatActivity {
+
     TextToSpeech tts;
 
     @Override
@@ -24,13 +24,15 @@ public class PatientTest extends AppCompatActivity {
         tts=new TextToSpeech(PatientTest.this, status -> {
             if(status == TextToSpeech.SUCCESS){
                 tts.setLanguage(Locale.US);
-                ConvertTextToSpeech();
+                if(Settings.getTextToSpeechBool()) {
+                    ConvertTextToSpeech();
+                }
             }
         });
 
         // Grab all the stuff on screen
         Button startTestButton = findViewById(R.id.button_start_test_first);
-        Button returnDashboardButton = findViewById(R.id.button_return_main_test);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_patient_test);
         TextView textViewTestPageInstr1 = findViewById(R.id.textViewTestPageInstr1);
         TextView textViewTestPageInstr2 = findViewById(R.id.textViewTestPageInstr2);
         TextView textViewTestPageInstr3 = findViewById(R.id.textViewTestPageInstr3);
@@ -49,6 +51,10 @@ public class PatientTest extends AppCompatActivity {
         // Set the on click listener
         startTestButton.setOnClickListener(v -> openTestActivity());
         returnDashboardButton.setOnClickListener(v -> openDashboardActivity());
+
+        // Set color of button backgrounds
+        startTestButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
 
     }
 
@@ -69,19 +75,7 @@ public class PatientTest extends AppCompatActivity {
         tts.speak(toSpeakBox4, TextToSpeech.QUEUE_ADD, null);
     }
 
-    private void openTestActivity() {
-        Intent intent = new Intent(this, Test1.class);
-        startActivity(intent);
-        // make sure to close this activity, since we aren't returning to it
-        this.finish();
-    }
 
-    private void openDashboardActivity() {
-        Intent intent = new Intent(this, Dashboard.class);
-        startActivity(intent);
-        // make sure to close this activity, since we aren't returning to it
-        this.finish();
-    }
 
     @Override
     protected void onResume() {
@@ -89,7 +83,7 @@ public class PatientTest extends AppCompatActivity {
 
         // Grab all the stuff on screen
         Button startTestButton = findViewById(R.id.button_start_test_first);
-        Button returnDashboardButton = findViewById(R.id.button_return_main_test);
+        Button returnDashboardButton = findViewById(R.id.button_return_main_patient_test);
         TextView textViewTestPageInstr1 = findViewById(R.id.textViewTestPageInstr1);
         TextView textViewTestPageInstr2 = findViewById(R.id.textViewTestPageInstr2);
         TextView textViewTestPageInstr3 = findViewById(R.id.textViewTestPageInstr3);
@@ -104,8 +98,27 @@ public class PatientTest extends AppCompatActivity {
         // Set size of buttons
         startTestButton.setTextSize(SettingsStyle.getFontSize());
         returnDashboardButton.setTextSize(SettingsStyle.getFontSize());
+
+        // Set color of button backgrounds
+        startTestButton.setBackgroundColor(SettingsStyle.getPrimaryColor());
+        returnDashboardButton.setBackgroundColor(SettingsStyle.getSecondaryColor());
     }
 
+    private void openTestActivity() {
+        Intent intent = new Intent(this, Test1.class);
+        startActivity(intent);
+        // make sure to close this activity, since we aren't returning to it
+        this.finish();
+    }
+
+    private void openDashboardActivity() {
+        Intent intent = new Intent(this, Dashboard.class);
+        startActivity(intent);
+        // make sure to close this activity, since we aren't returning to it
+        this.finish();
+    }
+
+    // Make sure text to speech stops when this activity is paused
     @Override
     protected void onPause() {
         super.onPause();
