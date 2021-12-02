@@ -83,7 +83,7 @@ public class Test5 extends AppCompatActivity {
 
         // add test data to global AppData
         AppData testData = (AppData) getApplicationContext();
-        testData.updateTdm(2, dataCollector.getTdm());
+        testData.updateTdm(5, dataCollector.getTdm());
 
         // fire and forget submit data to database in async
         String base64TestData = null;

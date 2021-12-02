@@ -122,10 +122,8 @@ public class Results extends AppCompatActivity {
 
                 // Check to make sure the results published have the newest timestamp
                 if ((resultLocalDate.compareTo(surveyLocalDate) > 0) && (resultLocalDate.compareTo(testLocalDate) > 0)) {
-                    JSONObject resultJson = new JSONObject(result);
-                    String fallRisk = resultJson.getString("fall_risk");
 
-                    resultDouble = Double.parseDouble(fallRisk);
+                    resultDouble = Double.parseDouble(result);
                     timestampResult = resultLocalDate;
 
                     Intent intent = new Intent(this, FallRiskResults.class);
@@ -151,6 +149,7 @@ public class Results extends AppCompatActivity {
                     .setMessage("Your result is not ready yet")
                     .setPositiveButton("Okay", null)
                     .show();
+            progressBar.setVisibility(View.GONE);
         }
     }
 
