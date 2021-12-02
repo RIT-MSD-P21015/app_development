@@ -31,7 +31,8 @@ public class FallRiskResults extends AppCompatActivity {
         String resultString = (int) (Results.getResultDouble()*100) + "%";
         ResultTextView.setText(resultString);
 
-
+        // Set color of button backgrounds
+        returnToDashboard.setBackgroundColor(SettingsStyle.getPrimaryColor());
 
         TimeZone tz = TimeZone.getDefault();
         TimeZone UTC = TimeZone.getTimeZone("UTC");
