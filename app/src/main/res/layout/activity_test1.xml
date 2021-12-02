@@ -15,12 +15,11 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_start_test1"
+        app:layout_constraintBottom_toTopOf="@+id/button_return_main_test_1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewTest1Title"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/textViewTest1Title">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,6 +85,22 @@
                 android:text="5. Press the End Test Button"
                 android:textSize="20sp" />
 
+            <Button
+                android:id="@+id/button_start_test1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:text="@string/start_test" />
+
+            <Button
+                android:id="@+id/button_end_test1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:text="@string/end_test" />
+
         </LinearLayout>
     </ScrollView>
 
@@ -100,27 +115,6 @@
         app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button_start_test1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="@string/start_test"
-        app:layout_constraintBottom_toTopOf="@+id/button_end_test1"
-        app:layout_constraintEnd_toEndOf="@+id/button_end_test1"
-        app:layout_constraintStart_toStartOf="@+id/button_end_test1" />
-
-    <Button
-        android:id="@+id/button_end_test1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="@string/end_test"
-        app:layout_constraintBottom_toTopOf="@+id/button_return_main_test_1"
-        app:layout_constraintEnd_toEndOf="@+id/button_return_main_test_1"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/button_return_main_test_1" />
 
     <Button
         android:id="@+id/button_return_main_test_1"

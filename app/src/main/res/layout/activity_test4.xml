@@ -15,7 +15,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_start_test4"
+        app:layout_constraintBottom_toTopOf="@+id/button_return_main_test4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTest4Title">
@@ -71,28 +71,24 @@
                 android:layout_marginRight="16dp"
                 android:text="4. Press the End Test Button after the 5 repeats"
                 android:textSize="20sp" />
+
+            <Button
+                android:id="@+id/button_start_test4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:text="@string/start_test" />
+
+            <Button
+                android:id="@+id/button_end_test4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:text="@string/end_test" />
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:id="@+id/button_start_test4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="@string/start_test"
-        app:layout_constraintBottom_toTopOf="@+id/button_end_test4"
-        app:layout_constraintEnd_toEndOf="@+id/button_end_test4"
-        app:layout_constraintStart_toStartOf="@+id/button_end_test4" />
-
-    <Button
-        android:id="@+id/button_end_test4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:text="@string/end_test"
-        app:layout_constraintBottom_toTopOf="@+id/button_return_main_test4"
-        app:layout_constraintEnd_toEndOf="@+id/button_return_main_test4"
-        app:layout_constraintStart_toStartOf="@+id/button_return_main_test4" />
 
     <Button
         android:id="@+id/button_return_main_test4"
