@@ -111,7 +111,7 @@ public class Settings extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        // on success, move to openDashboardActivity
+        // on success, move to login screen
         if (serverResponseCode == 204) {
             new androidx.appcompat.app.AlertDialog.Builder(this)
                     .setTitle("User Delete")
@@ -122,7 +122,7 @@ public class Settings extends AppCompatActivity {
             new androidx.appcompat.app.AlertDialog.Builder(this)
                     .setTitle("User Delete")
                     .setMessage("User account deletion failed")
-                    .setPositiveButton("Okay", null)
+                    .setPositiveButton("Okay", (dialog, which) -> openLoginActivity())
                     .show();
         }
     }
@@ -139,11 +139,12 @@ public class Settings extends AppCompatActivity {
     }
 
     private void openLoginActivity() {
-        // TODO how to set up login with new info?
-        // I don't know what this means @Paul
         Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
-        // make sure to close this activity, since we aren't returning to it
         this.finish();
+
+        // revoke authentication token
+        AppData tokenData = (AppData) getApplicationContext();
+        tokenData.clearToken();
     }
 }

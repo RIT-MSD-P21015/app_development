@@ -109,18 +109,18 @@ public class CreateUser extends AppCompatActivity {
 
             // on success, move to openDashboardActivity
             if (serverResponseCode == 201) {
-                alertDialog.setTitle("");
-                alertDialog.setMessage("Account Created Successfully");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        (dialog, which) -> dialog.dismiss());
-                alertDialog.show();
-                openLoginActivity();
+                new androidx.appcompat.app.AlertDialog.Builder(this)
+                        .setTitle("Account Created")
+                        .setMessage("Account Created Successfully")
+                        .setPositiveButton("Okay", (dialog, which) -> openLoginActivity())
+                        .show();
+
             } else {
-                alertDialog.setTitle("Alert");
-                alertDialog.setMessage("Account with that email already exists");
-                alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
-                        (dialog, which) -> dialog.dismiss());
-                alertDialog.show();
+                new androidx.appcompat.app.AlertDialog.Builder(this)
+                        .setTitle("Account Error")
+                        .setMessage("Please try again with a different email")
+                        .setPositiveButton("Okay", null)
+                        .show();
             }
         }
 

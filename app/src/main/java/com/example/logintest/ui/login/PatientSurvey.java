@@ -3,6 +3,7 @@ package com.example.logintest.ui.login;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -36,7 +37,7 @@ public class PatientSurvey extends AppCompatActivity {
         TextView textViewAge = findViewById(R.id.textViewInsertAge);
         TextView textViewHeight = findViewById(R.id.textViewInsertHeight);
         TextView textViewWeight = findViewById(R.id.textViewInsertWeight);
-        TextView textViewBodySide = findViewById(R.id.textViewAffectedSide);
+        TextView textViewBodySide = findViewById(R.id.textViewDataBodySide);
         TextView textViewNumFalls = findViewById(R.id.textViewExperienceFall);
         TextView textViewMedication = findViewById(R.id.textViewMedication);
         TextView textViewProblemsHearing = findViewById(R.id.textViewProblemsHearing);
@@ -247,7 +248,9 @@ public class PatientSurvey extends AppCompatActivity {
             surveyFields.put("trapsFall", 1);
         }
 
+
         String surveyJson = new JSONObject(surveyFields).toString();
+        Log.e("SURVEYJSON",surveyJson);
         byte[] authBytes = surveyJson.getBytes(StandardCharsets.UTF_8);
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             surveyJson = Base64.getEncoder().encodeToString(authBytes);
