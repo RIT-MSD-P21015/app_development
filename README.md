@@ -15,4 +15,4 @@ To get started:
   * If a window does not pop up, click on the folder icon in in the top left corner. 
 * Navigate to the download of this repository and select 'app_development' with the green icon. Click open.
 
-Once the project is opened, Android studio will automatically verify all of the files. 
+Once the project is opened, Android studio will automatically verify all of the files. From here, you can edit code, build new versions of the app, and deploy them to an android phone connected over [adb](https://developer.android.com/studio/command-line/adb). 
