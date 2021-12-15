@@ -1,6 +1,6 @@
 # app_development
 
-The main Android app that collects fall risk data and sends them to the remote server. Shows users fall risk results when available. 
+The main Android app that collects fall risk data and sends them to the remote server. Shows users' fall risk results when available. 
 
 App contacts:
 * App sensors, data, and networking: Paul Kelly `pjk2563@rit.edu` 
