@@ -13,7 +13,6 @@ To get started:
 * Open Android Studio, setting up first time preferences as desired
 * If a window pops up asking to open an android project or create a new one, click 'open an existing android project'
   * If a window does not pop up, click on the folder icon in in the top left corner. 
-  * Alternatively, click on 
 * Navigate to the download of this repository and select 'app_development' with the green icon. Click open.
 
 Once the project is opened, Android studio will automatically verify all of the files. 
